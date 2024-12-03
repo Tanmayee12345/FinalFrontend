@@ -7,9 +7,9 @@ import { AdminComponent } from '../components/admin/admin.component';
 import { LoginDetailsComponent } from '../components/login-details/login-details.component';
 import { CoursesComponent } from '../components/courses/courses.component';
 import { TimetableComponent } from '../components/timetable/timetable.component';
-import { StudentDashboardComponent } from '../student-dashboard/student-dashboard.component';
-import { TeacherDashboardComponent } from '../teacher-dashboard/teacher-dashboard.component';
-import { AdminDashboardComponent } from '../admin-dashboard/admin-dashboard.component';
+import { StudentDashboardComponent } from '../components/student-dashboard/student-dashboard.component';
+import { TeacherDashboardComponent } from '../components/teacher-dashboard/teacher-dashboard.component';
+import { AdminDashboardComponent } from '../components/admin-dashboard/admin-dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'logindetails', pathMatch: 'full' },
