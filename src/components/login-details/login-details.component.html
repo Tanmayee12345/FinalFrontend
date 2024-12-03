@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+ 
+</head>
+<body>
+  <mat-card class="login-card">
+    <h2 class="login-title">Login</h2>
+  
+    <!-- User Type Selection -->
+    <div class="button-group">
+      <button
+        class="student-btn"
+        (click)="selectUserType('student')"
+        [class.active]="userType === 'student'"
+      >
+        Student
+      </button>
+      <button
+        class="teacher-btn"
+        (click)="selectUserType('teacher')"
+        [class.active]="userType === 'teacher'"
+      >
+        Teacher
+      </button>
+      <button
+        class="admin-btn"
+        (click)="selectUserType('admin')"
+        [class.active]="userType === 'admin'"
+      >
+        Admin
+      </button>
+    </div>
+  
+    <!-- Login Form -->
+    <form (ngSubmit)="login()" class="login-form">
+      <!-- ID Field for Student and Teacher -->
+      <mat-form-field appearance="outline" class="full-width" *ngIf="userType !== 'admin'">
+        <mat-label>ID</mat-label>
+        <input matInput type="text" [(ngModel)]="loginDetails.id" name="id" required />
+      </mat-form-field>
+  
+      <!-- Email Field for Student -->
+      <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'student'">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="loginDetails.email" name="email" required />
+      </mat-form-field>
+  
+      <!-- Username and Password Fields for Admin -->
+      <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" [(ngModel)]="loginDetails.username" name="username" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="loginDetails.password" name="password" required />
+      </mat-form-field>
+  
+      <!-- Submit Button -->
+      <button class="login-btn" [ngClass]="{'student-btn': userType === 'student', 'teacher-btn': userType === 'teacher', 'admin-btn': userType === 'admin'}" type="submit">
+        Login
+      </button>
+    </form>
+  
+    <!-- Create Account Buttons -->
+    <div class="create-account-section" *ngIf="userType === 'student' || userType === 'teacher'">
+      <p>Don't have an account?</p>
+      <button
+        class="student-btn"
+        *ngIf="userType === 'student'"
+        (click)="navigateToStudentRegistration()"
+      >
+        Create Student Account
+      </button>
+      <button
+        class="teacher-btn"
+        *ngIf="userType === 'teacher'"
+        (click)="navigateToTeacherRegistration()"
+      >
+        Create Teacher Account
+      </button>
+    </div>
+  </mat-card>
+</body>
+</html>

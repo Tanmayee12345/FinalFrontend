@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Registration</title>
+  
+</head>
+<body>
+  <mat-card class="registration-card">
+    <h2 class="registration-title">Teacher Registration</h2>
+    <form (ngSubmit)="registerTeacher()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" [(ngModel)]="teacher.name" name="name" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Course Name</mat-label>
+        <input matInput type="text" [(ngModel)]="teacher.courseName" name="courseName" required />
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contact Details</mat-label>
+        <input matInput type="text" [(ngModel)]="teacher.contactDetails" name="contactDetails" required />
+      </mat-form-field>
+  
+      <button mat-raised-button  class="submit-btn" style="background-color: goldenrod;" type="submit">Register</button>
+    </form>
+  
+   <!-- Display registered teacher ID -->
+   <div *ngIf="registeredTeachertId" class="success-message">
+    <h3>Registration Successful!</h3>
+    <p>Your Teacher ID: <strong>{{ registeredTeachertId }}</strong></p>
+   </div>
+  </mat-card>
+</body>
+</html>
