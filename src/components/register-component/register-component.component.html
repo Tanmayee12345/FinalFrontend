@@ -1,37 +1,48 @@
-<div class="register-container">
-  <h2>Register</h2>
-  <form (ngSubmit)="register()">
-    <div>
-      <label for="id">ID:</label>
-      <input
-        type="text"
-        id="id"
-        [(ngModel)]="user.id"
-        name="id"
-        required
-      />
-    </div>
-    <div>
-      <label for="username">Username:</label>
-      <input
-        type="text"
-        id="username"
-        [(ngModel)]="user.username"
-        name="username"
-        required
-      />
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        [(ngModel)]="user.password"
-        name="password"
-        required
-      />
-    </div>
-    <button type="submit">Register</button>
-  </form>
-  <p>{{ message }}</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Register</h2>
+    <form (ngSubmit)="register()">
+      <div>
+        <label for="id">ID:</label>
+        <input
+          type="text"
+          id="id"
+          [(ngModel)]="user.id"
+          name="id"
+          required
+        />
+      </div>
+      <div>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          [(ngModel)]="user.username"
+          name="username"
+          required
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          [(ngModel)]="user.password"
+          name="password"
+          required
+        />
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <p>{{ message }}</p>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+<mat-card>
+  <h2>Teachers, Classes, and Students</h2>
+  <div *ngFor="let teacher of teachersData">
+    <h3>{{ teacher.teacherName }}</h3>
+    <div *ngFor="let classEntry of teacher.classes | keyvalue">
+      <h4>Class: {{ classEntry.key }}</h4>
+      <ul>
+        <li *ngFor="let student of classEntry.value">
+          {{ student }}
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openAddMarksModal(teacher.teacherName, classEntry.key, student)"
+          >
+            Add Marks
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal for Adding Marks -->
+  <div *ngIf="isModalOpen" class="modal">
+    <mat-card>
+      <h3>Add Marks and Grade</h3>
+      <form #marksForm="ngForm" (ngSubmit)="submitMarks()">
+        <mat-form-field appearance="fill">
+          <mat-label>Marks</mat-label>
+          <input
+            matInput
+            [(ngModel)]="marks"
+            name="marks"
+            type="number"
+            required
+            #marksInput="ngModel"
+          />
+          <mat-error *ngIf="marksInput.invalid && marksInput.touched">Marks are required!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Grade</mat-label>
+          <input
+            matInput
+            [(ngModel)]="grade"
+            name="grade"
+            required
+            #gradeInput="ngModel"
+          />
+          <mat-error *ngIf="gradeInput.invalid && gradeInput.touched">Grade is required!</mat-error>
+        </mat-form-field>
+
+        <div class="modal-actions">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="marksForm.invalid"
+          >
+            Submit
+          </button>
+          <button mat-button color="warn" type="button" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</mat-card>

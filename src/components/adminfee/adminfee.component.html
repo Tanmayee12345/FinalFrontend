@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="admin-fee-management">
+
+
+    <mat-card>
+      <h2>Assign Fee to Students</h2>
+      <form (ngSubmit)="assignFeeToStudents()">
+        <mat-form-field appearance="fill">
+          <mat-label>Class Name</mat-label>
+          <input matInput [(ngModel)]="className" name="assignClassName" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>School Fee</mat-label>
+          <input matInput type="number" [(ngModel)]="schoolFee" name="assignSchoolFee" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Tuition Fee</mat-label>
+          <input matInput type="number" [(ngModel)]="tuitionFee" name="assignTuitionFee" required />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">Assign Fee</button>
+      </form>
+    </mat-card>
+  </div>
+  
+</body>
+</html>

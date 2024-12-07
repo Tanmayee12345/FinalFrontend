@@ -1,0 +1,118 @@
+
+
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.admin-fee-management {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  // background: linear-gradient(135deg, #f6d365, #fda085); /* Vibrant background gradient */
+  padding: 20px;
+
+  mat-card {
+    max-width: 500px;
+    width: 100%;
+    background: #ffffff; /* White background for contrast */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 30px;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #2c3e50; /* Dark blue for the heading */
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    mat-form-field {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+
+      mat-label {
+        font-weight: bold;
+        color: #34495e; /* Slightly dark label color */
+      }
+
+      input {
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+
+    button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #3498db; /* Vibrant blue button */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #2980b9; /* Darker blue on hover */
+        transform: scale(1.05); /* Slight scale on hover */
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-fee-management {
+    padding: 10px;
+
+    mat-card {
+      padding: 20px;
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-fee-management {
+    padding: 5px;
+
+    mat-card {
+      padding: 15px;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      mat-form-field {
+        mat-label {
+          font-size: 0.9rem;
+        }
+
+        input {
+          font-size: 0.9rem;
+        }
+      }
+
+      button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+  }
+}

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth-service.service';
 
 @Component({
   selector: 'app-login-details',
@@ -25,9 +25,9 @@ import { Router } from '@angular/router';
 })
 export class LoginDetailsComponent {
   userType: string = 'student'; // Default user type
-  loginDetails: { id?: string; email?: string; username?: string; password?: string } = {}; // Extended for admin
+  loginDetails: { id?: string; email?: string; username?: string; password?: string } = {}; // Login details object
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   // Handle user type selection
   selectUserType(type: string) {
@@ -40,38 +40,36 @@ export class LoginDetailsComponent {
     let apiUrl = '';
     const requestBody: any = {};
 
-    // Determine API endpoint and request body based on user type
     if (this.userType === 'student') {
       apiUrl = 'http://localhost:8091/api/auth/login/student';
       requestBody.id = this.loginDetails.id;
       requestBody.email = this.loginDetails.email;
+      requestBody.password = this.loginDetails.password;
     } else if (this.userType === 'teacher') {
       apiUrl = 'http://localhost:8091/api/auth/login/teacher';
       requestBody.id = this.loginDetails.id;
+      requestBody.password = this.loginDetails.password;
     } else if (this.userType === 'admin') {
-      // Directly handle admin login without backend
       if (this.loginDetails.username === 'admin' && this.loginDetails.password === 'admin123') {
         alert('Admin login successful!');
         this.router.navigate(['/admin-dashboard']);
-        return; // Exit function as admin login does not involve an API call
+        return;
       } else {
         alert('Invalid admin credentials!');
-        return; // Exit function on invalid credentials
+        return;
       }
     }
 
-    // For student and teacher, send login request to backend
     this.http.post(apiUrl, requestBody, { responseType: 'text' }).subscribe({
-      next: (response: string) => {
-        alert(`${this.userType.charAt(0).toUpperCase() + this.userType.slice(1)} login successful!`);
-        const navigateTo =
-          this.userType === 'student'
-            ? '/student-dashboard'
-            : this.userType === 'teacher'
-            ? '/teacher-dashboard'
-            : '';
-        if (navigateTo) {
-          this.router.navigate([navigateTo]);
+      next: () => {
+        if (this.userType === 'teacher') {
+          alert('Login successful');
+          this.authService.setTeacherId(this.loginDetails.id || '');
+          this.router.navigate(['/teacher-dashboard']);
+        } else if (this.userType === 'student') {
+          alert('Login successful');
+          this.authService.setStudentId(this.loginDetails.id || '');
+          this.router.navigate(['/student-dashboard']);
         }
       },
       error: () => {
@@ -79,11 +77,11 @@ export class LoginDetailsComponent {
       },
     });
   }
+
   navigateToStudentRegistration() {
     this.router.navigate(['/student']);
   }
 
-  // Navigate to teacher registration
   navigateToTeacherRegistration() {
     this.router.navigate(['/teacher']);
   }

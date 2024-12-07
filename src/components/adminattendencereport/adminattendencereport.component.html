@@ -1,0 +1,26 @@
+<h2>Attendance Report for All Students</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Student Name</th>
+      <th>Class Name</th>
+      <th>Attendance Percentage</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of attendanceReport">
+      <td>{{ report.studentId }}</td>
+      <td>{{ report.studentName }}</td>
+      <td>{{ report.className }}</td>
+      <td>{{ report.attendancePercentage  }}%</td>
+      <td>
+        <span [ngClass]="{'danger': report.attendancePercentage < 80, 'good': report.attendancePercentage >= 80}">
+          {{ report.attendancePercentage >= 80 ? 'Good' : 'Danger' }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

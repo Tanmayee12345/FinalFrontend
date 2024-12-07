@@ -1,0 +1,144 @@
+// Styling for the register container
+
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}.register-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      label {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: 500;
+      }
+
+      input {
+        padding: 0.8rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: #6d8765;
+        }
+      }
+    }
+
+    button {
+      padding: 0.8rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #6d8765;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #5c7455;
+      }
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #666;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .register-container {
+    padding: 1.5rem;
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    form {
+      gap: 1rem;
+
+      div {
+        label {
+          font-size: 0.95rem;
+        }
+
+        input {
+          font-size: 0.95rem;
+        }
+      }
+
+      button {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+      }
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    form {
+      gap: 0.8rem;
+
+      div {
+        label {
+          font-size: 0.9rem;
+        }
+
+        input {
+          font-size: 0.9rem;
+        }
+      }
+
+      button {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+      }
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}

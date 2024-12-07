@@ -1,0 +1,130 @@
+/* Full-page layout */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Fallback color for loading */
+}
+
+/* Admin Dashboard */
+.admin-dashboard {
+  height: 100vh; /* Full height */
+  display: flex;
+  flex-direction: column;
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  overflow: auto; /* Ensure content fits within the viewport */
+}
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background-color: rgba(218, 165, 32, 0.95); /* Goldenrod with slight transparency */
+  color: white;
+  padding: 0.5rem 1rem;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+}
+
+/* Navigation Title */
+.nav-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Spacer to push nav items to the right */
+.spacer {
+  flex: 1;
+}
+
+/* Navigation Buttons */
+button[mat-button] {
+  font-size: 0.9rem;
+  color: #fff;
+  margin: 0 0.5rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+button[mat-button]:hover {
+  color: yellow;
+  transform: scale(1.1);
+}
+
+/* Active Link Styling */
+.active {
+  color: #fdd835; /* Bright yellow for active links */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Logout Button */
+button[mat-button]:last-child {
+  background-color: #b71c1c; /* Dark red for logout */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+button[mat-button]:last-child:hover {
+  background-color: #d32f2f; /* Slightly brighter red on hover */
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-title {
+    font-size: 1.5rem;
+  }
+
+  button[mat-button] {
+    font-size: 0.8rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0.5rem;
+  }
+
+  button[mat-button] {
+    margin: 0.2rem 0;
+    padding: 0.5rem;
+  }
+
+  .nav-title {
+    font-size: 1.2rem;
+  }
+
+  .content {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

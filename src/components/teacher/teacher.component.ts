@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 export class TeacherComponent {
   teacher = {
     name: '',
+    password:'',
     courseName: '',
     contactDetails: '',
   };

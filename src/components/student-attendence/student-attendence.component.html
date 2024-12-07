@@ -1,0 +1,21 @@
+<div class="student-attendance-container">
+  <h2>Attendance Summary</h2>
+
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading attendance...</p>
+  </div>
+
+  <div *ngIf="attendanceSummary.length > 0; else noAttendance">
+    <mat-card *ngFor="let attendance of attendanceSummary" class="attendance-card">
+      <mat-card-content>
+        <p><strong>Date:</strong> {{ attendance.date }}</p>
+        <p><strong>Teacher:</strong> {{ attendance.teacherName }}</p>
+        <p><strong>Status:</strong> {{ attendance.status }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <ng-template #noAttendance>
+    <p>No attendance records found.</p>
+  </ng-template>
+</div>

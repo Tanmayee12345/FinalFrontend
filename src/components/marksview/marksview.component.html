@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mat-card *ngIf="!isLoading; else loading">
+    <h2>Your Marks</h2>
+    <div *ngIf="marksData.length > 0; else noData">
+      <table>
+        <thead>
+          <tr>
+            <th>Teacher Name</th>
+            <th>Course Name</th>
+            <th>Marks</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mark of marksData">
+            <td>{{ mark.teacherName }}</td>
+            <td>{{ mark.courseName }}</td>
+            <td>{{ mark.marks }}</td>
+            <td>{{ mark.grade }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ng-template #noData>
+      <p>No marks data available.</p>
+    </ng-template>
+  </mat-card>
+  
+  <ng-template #loading>
+    <p>Loading your marks...</p>
+  </ng-template>
+  
+</body>
+</html>

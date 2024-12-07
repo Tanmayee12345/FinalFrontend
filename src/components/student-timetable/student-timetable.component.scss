@@ -1,0 +1,109 @@
+body {
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+mat-card {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  max-width: 80%;
+  height: 100%;
+  overflow-x: auto; /* Ensures no content overflows on smaller screens */
+}
+
+mat-card h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.timetable-table {
+  width: 100%;
+  height: 80%;
+  border-collapse: collapse;
+  
+  margin-top: 20px;
+}
+
+.timetable-table th,
+.timetable-table td {
+  border: 1px solid black;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  word-wrap: break-word; /* Prevents overflow of content */
+}
+
+.timetable-table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.timetable-table td:nth-child(odd) {
+  background-color: rgba(213, 205, 193, 0.95); /* Light Lavender for odd columns */
+}
+
+.timetable-table td:nth-child(even) {
+  background-color: rgb(239, 237, 226); /* Light Aqua for even columns */
+}
+
+.timetable-table td div {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.timetable-table td div strong {
+  color: #2c3e50;
+}
+
+.timetable-table td div * {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  mat-card {
+    padding: 15px;
+  }
+
+  .timetable-table th,
+  .timetable-table td {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-card {
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .timetable-table {
+    font-size: 0.7rem;
+  }
+
+  .timetable-table th,
+  .timetable-table td {
+    padding: 8px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}

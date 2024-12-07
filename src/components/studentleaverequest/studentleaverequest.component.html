@@ -1,0 +1,39 @@
+<div class="leave-request-container">
+  <h2>Request Leave</h2>
+
+  <!-- Teacher Selection -->
+  <div class="form-group">
+    <label for="teacher-select">Select Teacher:</label>
+    <select id="teacher-select" [(ngModel)]="teacherId" required>
+      <option *ngFor="let teacher of teachers" [value]="teacher.id">{{ teacher.name }}</option>
+    </select>
+  </div>
+
+  <!-- Leave Dates -->
+  <div class="form-group">
+    <label for="start-date">Start Date:</label>
+    <input id="start-date" type="date" [(ngModel)]="startDate" required />
+  </div>
+
+  <div class="form-group">
+    <label for="end-date">End Date:</label>
+    <input id="end-date" type="date" [(ngModel)]="endDate" required />
+  </div>
+
+  <!-- Reason -->
+  <div class="form-group">
+    <label for="reason">Reason:</label>
+    <textarea
+      id="reason"
+      [(ngModel)]="reason"
+      placeholder="Enter the reason for your leave"
+      rows="3"
+      required
+    ></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <button (click)="submitLeaveRequest()" [disabled]="!teacherId || !startDate || !endDate || !reason">
+    Submit Leave Request
+  </button>
+</div>

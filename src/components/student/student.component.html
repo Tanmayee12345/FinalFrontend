@@ -13,6 +13,11 @@
         <mat-label>Name</mat-label>
         <input matInput type="text" [(ngModel)]="student.name" name="name" required />
       </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="student.password" name="password" required />
+    </mat-form-field>
+    
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Date of Birth</mat-label>
@@ -33,6 +38,12 @@
         <mat-label>Class</mat-label>
         <input matInput type="text" [(ngModel)]="student.studentClass" name="studentClass" required />
       </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>ParentPhoneNumber</mat-label>
+        <input matInput type="text" [(ngModel)]="student.parentPhoneNumber" name="studentClass" required />
+      </mat-form-field>
+
 
       <button mat-raised-button class="submit-btn" type="submit" style="background-color: goldenrod;"> Register and Know your Id</button>
     </form>

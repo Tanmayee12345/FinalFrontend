@@ -1,1 +1,29 @@
-<p>teacher-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="admin-dashboard">
+    <!-- Navigation Bar -->
+    <mat-toolbar class="navbar">
+      <span class="nav-title">Teacher Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/studentclass" routerLinkActive="active">Enter Marks </button>
+      <button mat-button routerLink="/teacherstudentmeassages" routerLinkActive="active">View StudentMessages</button>
+      <button mat-button routerLink="/studentattendence" routerLinkActive="active">Add Attendence</button>
+      <button mat-button routerLink="/teacherleaveaccept" routerLinkActive="active">ApproveLeave</button>
+      
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  
+    <!-- Main Content -->
+    <div class="content">
+      
+    </div>
+  </div>
+  
+</body>
+</html>

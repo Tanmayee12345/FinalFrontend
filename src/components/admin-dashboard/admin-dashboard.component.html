@@ -1,1 +1,34 @@
-<p>admin-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="admin-dashboard">
+    <!-- Navigation Bar -->
+    <mat-toolbar class="navbar">
+      <span class="nav-title">Admin Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/admin" routerLinkActive="active">Acceptance status</button>
+      <button mat-button routerLink="/courses" routerLinkActive="active">Courses</button>
+      <button mat-button routerLink="/adminfeecomponent" routerLinkActive="active">Add Fee</button>
+      <button mat-button routerLink="/adminmessages" routerLinkActive="active">View Messages</button>
+      <button mat-button routerLink="/parentcommunication" routerLinkActive="active">Parents</button>
+      <button mat-button routerLink="/adminreport" routerLinkActive="active">Report</button>
+      <button mat-button routerLink="/scheduleExam" routerLinkActive="active">ScheduleExam</button>
+
+     
+      
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  
+    <!-- Main Content -->
+    <div class="content">
+      
+    </div>
+  </div>
+  
+</body>
+</html>

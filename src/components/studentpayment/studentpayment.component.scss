@@ -1,0 +1,27 @@
+mat-card {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+}
+
+button {
+  margin-top: 10px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes and Students</title>
+</head>
+<body>
+  <mat-card class="main-card" *ngIf="!isLoading; else loading">
+    <h2>Classes and Students</h2>
+    <div *ngFor="let className of objectKeys(classesAndStudents)" class="class-container">
+      <h3 class="class-title">Class: {{ className }}</h3>
+      <ul class="student-list">
+        <li *ngFor="let student of classesAndStudents[className]" class="student-item">
+          {{ student }}
+          <button
+            mat-raised-button
+            color="accent"
+            class="add-marks-button"
+            (click)="openAddMarksModal(className, student)"
+          >
+            Add Marks and Grade
+          </button>
+        </li>
+      </ul>
+    </div>
+  </mat-card>
+  
+  <!-- Modal for Adding Marks and Grade -->
+  <div *ngIf="isModalOpen" class="modal">
+    <mat-card class="modal-card">
+      <h3>Add Marks and Grade</h3>
+      <form (ngSubmit)="submitMarksAndGrade()" class="marks-form">
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Marks</mat-label>
+          <input matInput [(ngModel)]="marks" name="marks" type="number" required />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-field">
+          <mat-label>Grade</mat-label>
+          <input matInput [(ngModel)]="grade" name="grade" required />
+        </mat-form-field>
+        <div class="modal-actions">
+          <button mat-raised-button color="primary" class="submit-button" type="submit">
+            Submit
+          </button>
+          <button mat-button color="warn" class="cancel-button" type="button" (click)="closeModal()">
+            Cancel
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  
+  <ng-template #loading>
+    <p class="loading-text">Loading classes and students...</p>
+  </ng-template>
+</body>
+</html>

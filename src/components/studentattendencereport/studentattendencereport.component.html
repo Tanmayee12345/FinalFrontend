@@ -1,0 +1,11 @@
+<h2>Your Attendance Report</h2>
+<div *ngIf="attendanceReport">
+  <p><strong>Student Name:</strong> {{ attendanceReport.studentName }}</p>
+  <p><strong>Attendance Percentage:</strong> {{ attendanceReport.attendancePercentage | number:'1.2-2' }}%</p>
+  <p><strong>Status:</strong>
+    <span [ngClass]="{'danger': attendanceReport.attendancePercentage < 80, 'good': attendanceReport.attendancePercentage >= 80}">
+      {{ attendanceReport.status }}
+    </span>
+  </p>
+</div>
+

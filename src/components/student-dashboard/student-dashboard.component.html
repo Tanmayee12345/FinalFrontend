@@ -1,1 +1,34 @@
-<p>student-dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+</head>
+<body>
+  <div class="student-dashboard">
+    <!-- Navigation Bar -->
+    <mat-toolbar class="navbar" color="primary">
+      <span class="nav-title">Student Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-button routerLink="/student-timetable" routerLinkActive="active">TimeTable</button>
+      <button mat-button routerLink="/marksview" routerLinkActive="active">MarksView</button>
+      <button mat-button routerLink="/studentpayment" routerLinkActive="active">Payment</button>
+      <button mat-button routerLink="/studentmessages" routerLinkActive="active">Message to Admin</button>
+      <button mat-button routerLink="/studentteachermessage" routerLinkActive="active">Message to teacher</button>
+      <button mat-button routerLink="/viewAttendence" routerLinkActive="active">View Attendence</button>
+      <button mat-button routerLink="/studentleave" routerLinkActive="active">LaeveRequest</button>
+      <button mat-button routerLink="/vewExamSchedule" routerLinkActive="active">ExamSchedule</button>
+      <button mat-button routerLink="/studentreport" routerLinkActive="active">Report</button>
+     
+     
+    
+
+      <button mat-button routerLink="/updatestudentprofile" routerLinkActive="active">Update Profile</button>
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  
+  
+  </div>
+</body>
+</html>

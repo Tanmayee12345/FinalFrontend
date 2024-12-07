@@ -9,6 +9,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif;
 }
 
 .login-card {
@@ -16,16 +17,23 @@ body {
   width: 90%;
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.95);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+  }
 }
 
 .login-title {
   margin-bottom: 1.5rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #333;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .button-group {
@@ -42,34 +50,39 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 0.9rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 }
 
 .student-btn {
   background-color: #6d8765;
-  color: #000;
+  color: #fff;
 }
 
 .student-btn:hover {
-  background-color: #74856f;
+  background-color: #5b7558;
 }
 
 .teacher-btn {
-  background-color: rgb(227, 189, 93);
-  color: #000;
+  background-color: rgba(227, 189, 93);
+  color: #fff;
 }
 
 .teacher-btn:hover {
-  background-color: #d4b773;
+  background-color: #ab9b71;
 }
 
 .admin-btn {
   background-color: #df88df;
-  color: #000;
+  color: #fff;
 }
 
 .admin-btn:hover {
-  background-color: #c67ac6;
+  background-color: #c476c4;
 }
 
 .login-form {
@@ -82,6 +95,19 @@ body {
   width: 100%;
 }
 
+mat-form-field {
+  transition: all 0.3s ease;
+
+  mat-label {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  matInput {
+    font-size: 1rem;
+  }
+}
+
 .login-btn {
   width: 100%;
   padding: 0.75rem;
@@ -91,7 +117,12 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
 }
 
 .login-btn.student-btn {
@@ -99,37 +130,77 @@ body {
 }
 
 .login-btn.teacher-btn {
-  background-color: rgb(227, 189, 93);
+  background-color: rgba(227, 189, 93);
 }
 
 .login-btn.admin-btn {
   background-color: #df88df;
 }
 
-.login-btn:hover {
-  opacity: 0.9;
-}
-
 .create-account-section {
   margin-top: 2rem;
+  text-align: center;
+
+  p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+  }
 }
 
-.create-account-section p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 1rem;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
 
-.create-account-section button {
-  width: 100%;
-  font-size: 0.9rem;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
+  .login-title {
+    font-size: 1.8rem;
+  }
 
-.create-account-section button:hover {
-  opacity: 0.9;
+  .button-group button {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+
+  .login-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  mat-form-field {
+    mat-label {
+      font-size: 0.9rem;
+    }
+
+    matInput {
+      font-size: 0.9rem;
+    }
+  }
+
+  .create-account-section p {
+    font-size: 0.8rem;
+  }
+
+  .create-account-section button {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
 }

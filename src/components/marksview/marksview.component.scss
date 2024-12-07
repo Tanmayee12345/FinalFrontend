@@ -1,0 +1,110 @@
+// General card styling
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+mat-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+// Table styling
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  th {
+    background-color: #6d8765;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  td {
+    background-color: #f9f9f9;
+    color: #333;
+  }
+
+  // Add hover effect for table rows
+  tbody tr:hover {
+    background-color: #e8f5e9;
+    transition: background-color 0.3s ease;
+  }
+}
+
+// No data message
+p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+// Loading state
+ng-template {
+  p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #888;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  mat-card {
+    padding: 1.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+
+    th, td {
+      padding: 8px 10px;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    display: block;
+    overflow-x: auto;
+
+    th, td {
+      white-space: nowrap;
+    }
+  }
+
+  mat-card {
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="admin-messages-container">
+    <h2>Student Messages</h2>
+  
+    <!-- Messages List -->
+    <div *ngIf="messages.length > 0; else noMessages">
+      <mat-card *ngFor="let message of messages" class="message-card">
+        <mat-card-header>
+          <mat-card-title>{{ message.studentName }}</mat-card-title>
+          <mat-card-subtitle>Class: {{ message.className }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Message:</strong> {{ message.message }}</p>
+          <p><strong>Status:</strong> {{ message.status ? 'Responded' : 'Pending' }}</p>
+          <p *ngIf="message.adminResponse">
+            <strong>Admin Response:</strong> {{ message.adminResponse }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <textarea
+            placeholder="Write your response..."
+            [(ngModel)]="message.responseText"
+            rows="2"
+            class="response-textarea"
+          ></textarea>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="respondToMessage(message)"
+          >
+            Send Response
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  
+    <!-- No Messages Template -->
+    <ng-template #noMessages>
+      <p>No messages from students yet.</p>
+    </ng-template>
+  </div>
+  
+</body>
+</html>

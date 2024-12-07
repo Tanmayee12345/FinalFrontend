@@ -1,0 +1,16 @@
+<div class="timetable-container">
+  <h1>Exam Timetable</h1>
+
+  <div *ngIf="timetable.length === 0">
+    <p>No exams scheduled yet.</p>
+  </div>
+
+  <div *ngFor="let exam of timetable" class="exam-card">
+    <h3>Course: {{ exam.courseName }}</h3>
+    <p>Date: {{ exam.examDate }}</p>
+    <p>Time: {{ exam.startTime }} - {{ exam.endTime }}</p>
+  </div>
+</div>
+
+
+

@@ -1,46 +1,58 @@
-<mat-card>
-  <h2>Manage Courses</h2>
-
-  <form (ngSubmit)="addCourse()">
-    <mat-form-field class="full-width">
-      <mat-label>Course Name</mat-label>
-      <input matInput [(ngModel)]="newCourse.courseName" name="courseName" required />
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-      <mat-label>Description</mat-label>
-      <input matInput [(ngModel)]="newCourse.description" name="description" required />
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Add Course</button>
-  </form>
-
-  <h3>Available Courses</h3>
-  <table mat-table [dataSource]="courses" class="mat-elevation-z8">
-    <ng-container matColumnDef="courseId">
-      <th mat-header-cell *matHeaderCellDef> Course ID </th>
-      <td mat-cell *matCellDef="let course"> {{course.courseId}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="courseName">
-      <th mat-header-cell *matHeaderCellDef> Course Name </th>
-      <td mat-cell *matCellDef="let course"> {{course.courseName}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let course"> {{course.description}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let course">
-        <button mat-button color="warn" (click)="deleteCourse(course.courseId)">Delete</button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</mat-card>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mat-card>
+    <h2>Manage Courses</h2>
+  
+    <form (ngSubmit)="addCourse()">
+      <mat-form-field class="full-width">
+        <mat-label>Course Name</mat-label>
+        <input matInput [(ngModel)]="newCourse.courseName" name="courseName" required />
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="newCourse.description" name="description" required />
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Add Course</button>
+    </form>
+  
+    <h3>Available Courses</h3>
+    <table mat-table [dataSource]="courses" class="mat-elevation-z8">
+      <ng-container matColumnDef="courseId">
+        <th mat-header-cell *matHeaderCellDef> Course ID </th>
+        <td mat-cell *matCellDef="let course"> {{course.courseId}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef> Course Name </th>
+        <td mat-cell *matCellDef="let course"> {{course.courseName}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let course"> {{course.description}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let course">
+          <button mat-button color="warn" (click)="deleteCourse(course.courseId)">Delete</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+  
+  
+  
+</body>
+</html>

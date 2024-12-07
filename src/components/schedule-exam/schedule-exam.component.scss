@@ -1,0 +1,142 @@
+
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}.exam-schedule-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+
+  label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 1rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  select, 
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #5d9cec;
+    }
+  }
+
+  button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #5d9cec;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #4b87d9;
+    }
+
+    &:disabled {
+      background-color: #b0c7e3;
+      cursor: not-allowed;
+    }
+  }
+
+  .success {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #28a745;
+    font-weight: bold;
+  }
+
+  .error {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #dc3545;
+    font-weight: bold;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .exam-schedule-container {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    label {
+      font-size: 0.95rem;
+    }
+
+    select, 
+    input {
+      font-size: 0.95rem;
+    }
+
+    button {
+      font-size: 1rem;
+    }
+
+    .success, 
+    .error {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .exam-schedule-container {
+    padding: 1rem;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+    }
+
+    select, 
+    input {
+      font-size: 0.9rem;
+    }
+
+    button {
+      font-size: 0.9rem;
+    }
+
+    .success, 
+    .error {
+      font-size: 0.85rem;
+    }
+  }
+}

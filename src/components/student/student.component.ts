@@ -25,10 +25,12 @@ import { Router } from '@angular/router';
 export class StudentComponent {
   student = {
     name: '',
+    password:'',
     dateOfBirth: '',
     email: '',
     address: '',
     studentClass: '',
+    parentPhoneNumber:''
   };
 
   registeredStudentId: string | null = null; // To store the registered student ID

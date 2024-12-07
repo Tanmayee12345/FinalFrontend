@@ -1,0 +1,153 @@
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: 100% 100%;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-attachment: scroll;
+  margin: 0;
+  padding: 0;
+}
+mat-card {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #2c3e50; /* Dark blue heading color */
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #34495e; /* Slightly darker for subheadings */
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      align-self: center;
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #3498db; /* Vibrant blue button */
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #2980b9; /* Darker blue hover effect */
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      color: #2c3e50;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    tr {
+      &:hover {
+        background-color: #f9f9f9;
+      }
+    }
+
+    button {
+      color: #e74c3c; /* Red color for delete button */
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #c0392b; /* Darker red on hover */
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  mat-card {
+    padding: 20px;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    form {
+      button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+
+    table {
+      th, td {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  mat-card {
+    padding: 15px;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    form {
+      button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+
+    table {
+      th, td {
+        font-size: 0.9rem;
+        padding: 8px;
+      }
+    }
+  }
+}
