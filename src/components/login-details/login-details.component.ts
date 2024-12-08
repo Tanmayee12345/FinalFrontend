@@ -25,9 +25,18 @@ import { AuthService } from '../../service/auth-service.service';
 })
 export class LoginDetailsComponent {
   userType: string = 'student'; // Default user type
-  loginDetails: { id?: string; email?: string; username?: string; password?: string } = {}; // Login details object
+  loginDetails: {
+    id?: string;
+    email?: string;
+    username?: string;
+    password?: string;
+  } = {}; // Login details object
 
-  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   // Handle user type selection
   selectUserType(type: string) {
@@ -49,8 +58,14 @@ export class LoginDetailsComponent {
       apiUrl = 'http://localhost:8091/api/auth/login/teacher';
       requestBody.id = this.loginDetails.id;
       requestBody.password = this.loginDetails.password;
+    } else if (this.userType === 'parent') {
+      apiUrl = 'http://localhost:8091/api/auth/login/parent';
+      requestBody.id = this.loginDetails.id;
     } else if (this.userType === 'admin') {
-      if (this.loginDetails.username === 'admin' && this.loginDetails.password === 'admin123') {
+      if (
+        this.loginDetails.username === 'admin' &&
+        this.loginDetails.password === 'admin123'
+      ) {
         alert('Admin login successful!');
         this.router.navigate(['/admin-dashboard']);
         return;
@@ -63,16 +78,21 @@ export class LoginDetailsComponent {
     this.http.post(apiUrl, requestBody, { responseType: 'text' }).subscribe({
       next: () => {
         if (this.userType === 'teacher') {
-          alert('Login successful');
+          alert('Teacher login successful');
           this.authService.setTeacherId(this.loginDetails.id || '');
           this.router.navigate(['/teacher-dashboard']);
         } else if (this.userType === 'student') {
-          alert('Login successful');
+          alert('Student login successful');
+          this.authService.setStudentId(this.loginDetails.id || '');
+          this.router.navigate(['/student-dashboard']);
+        } else if (this.userType === 'parent') {
+          alert('Parent login successful');
           this.authService.setStudentId(this.loginDetails.id || '');
           this.router.navigate(['/student-dashboard']);
         }
       },
-      error: () => {
+      error: (error) => {
+        console.error('Login failed:', error);
         alert('Login failed! Please check your credentials.');
       },
     });

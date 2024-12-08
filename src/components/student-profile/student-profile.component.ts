@@ -73,6 +73,19 @@ export class StudentProfileComponent implements OnInit {
     });
   }
   updatePassword(){
+    const url = `${this.apiBase}/profile/${this.studentId}/update-password`;
+    const params = { password: this.password };
+
+    this.http.put(url, {}, { params,responseType: 'text' }).subscribe({
+      next: () => {
+        this.snackBar.open('Password updated successfully!', 'Close', { duration: 3000 });
+        this.fetchProfile(); // Refresh profile data
+      },
+      error: (error) => {
+        console.error('Error updating password:', error);
+        this.snackBar.open('Error updating password. Please try again later.', 'Close', { duration: 3000 });
+      },
+    });
     
   }
 }

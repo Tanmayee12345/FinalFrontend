@@ -1,52 +1,281 @@
-/* Full-page layout */
-body{
-  font-family: Arial, Helvetica, sans-serif;
-}
-.student-dashboard{
-  height: 100vh; /* Full height */
-  display: flex;
-  flex-direction: column;
-  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+/* Global Styles */
+body {
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg') !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: #fff;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Navigation Bar */
+/* Student Dashboard */
+.student-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Navbar */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: goldenrod; /* Semi-transparent blue */
+  background-color: goldenrod;
   color: white;
-  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem;
 }
 
-/* Navigation Title */
 .nav-title {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Spacer to push nav items to the right */
 .spacer {
   flex: 1;
 }
 
-/* Active link styling */
-.active {
-  color: yellow; /* Highlight active links */
-  font-weight: bold;
+.welcome-text {
+  font-size: 1rem;
+}
+
+.logout {
+  background-color: #e53935;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout:hover {
+  background-color: #c62828;
 }
 
 /* Main Content */
-.content {
+.main-content {
+  display: flex;
   flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  background: #eeeeee;
+  border: none;
+  border-radius: 5px;
+  color: #555;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar button.active {
+  background-color: green;
+  color: white;
+}
+
+.sidebar button:hover {
+  background: rgb(61, 213, 61);
+  transform: translateX(5px);
+  color: white;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+} 
+body {
+  
+  font-family: Arial, sans-serif;
+  // background-color: #fffff0;
+  color: #333;
+}
+
+.container {
+  padding: 5% 5% 5% 5%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  /* margin-left: 1rem; */
+}
+
+h4.title {
+  text-align: center;
+  font-size: 35px;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  margin-bottom: 1rem;  /* Reduced margin bottom to bring the feature section closer to the content */
+  flex-wrap: wrap; /* Allows cards to wrap if needed */
+  gap: 10px; /* Reduced gap between cards to 10px */
+}
+
+.feature-card {
+  flex: 1 1 45%; /* Ensures each card takes 45% width and wraps to the next line if needed */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.5); /* Slight overlay for better text visibility */
+  margin: 0; /* No margin to keep cards closer */
+}
+
+.card {
+  width: 70%; /* Ensures card occupies full width of the feature card */
+  background-color: #fff;
   border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 0; /* Ensures no bottom margin on cards */
+}
+
+.card:hover {
+  transform: scale(1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  text-align: center;
+  padding: 2rem;
+}
+
+.feature-icon {
+  width: 80px;   /* Set fixed width for icons */
+  height: 80px;  /* Set fixed height for icons */
+  margin-bottom: 0.2rem;
+  object-fit: contain;  /* Ensures image is resized correctly without distortion */
+}
+
+.card-text {
+  font-size: 16px;
+  color: #555;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    margin-bottom: 0.5rem; /* Adjusted margin for better vertical spacing on small screens */
+    flex: 0 0 100%; /* Ensure cards take full width on smaller screens */
+  }
+}
+
+/* Content */
+.content { 
+  flex: 1;
+  padding: 2rem;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background: #424242;
+  color: #ddd;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  margin: 0.5rem;
+  text-align: left;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 0.9rem;
+  color: #ddd;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.footer-bottom {
+  border-top: 1px solid #555;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.about-us-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    text-align: center;
+  }
+}
+
+/* Emoji Container */
+.emoji-container {
+  font-family: 'Arial', sans-serif;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.emoji-container::before {
+  content: '\1F44B'; /* Unicode for the waving hand emoji 👋 */
+  font-size: 30px;
+  margin-right: 10px;
 }

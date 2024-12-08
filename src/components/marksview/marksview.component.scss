@@ -1,19 +1,22 @@
-// General card styling
+
 body{
   background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
+.entire-page{
+  padding-top: 3rem;
+  padding-left: 25%;
+}
 mat-card {
   max-width: 700px;
-  margin: 2rem auto;
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   text-align: center;
+
 
   h2 {
     margin-bottom: 1.5rem;
@@ -27,7 +30,7 @@ mat-card {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
+  // margin-top: 1rem;
 
   th, td {
     border: 1px solid #ddd;
@@ -37,7 +40,8 @@ table {
   }
 
   th {
-    background-color: #6d8765;
+    // background-color: #6d8765;
+    background-color: green;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;

@@ -8,15 +8,24 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.entire{
+  // margin-top:2rem;
+  padding-top: 1rem;
+}
+// .full-table{
+//   width: 80%;
+// }
 mat-card {
-  margin: 20px auto;
+  margin: 10px auto;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.95);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center ;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  max-width: 80%;
-  height: 100%;
+  max-width: 90%;
+  height: 100hv;
   overflow-x: auto; /* Ensures no content overflows on smaller screens */
 }
 
@@ -24,7 +33,7 @@ mat-card h2 {
   text-align: center;
   color: #2c3e50;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
 
 .timetable-table {
@@ -38,14 +47,15 @@ mat-card h2 {
 .timetable-table th,
 .timetable-table td {
   border: 1px solid black;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
   font-size: 0.9rem;
   word-wrap: break-word; /* Prevents overflow of content */
 }
 
 .timetable-table th {
-  background-color: #4caf50;
+  // background-color: #6d8765;
+  background-color: green;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -61,7 +71,7 @@ mat-card h2 {
 
 .timetable-table td div {
   font-size: 0.85rem;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 
 .timetable-table td div strong {

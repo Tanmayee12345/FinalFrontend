@@ -55,10 +55,28 @@ export class StudentMessagesToTeacherComponent implements OnInit {
     });
   }
 
+  // loadMessages() {
+  //   this.messageService.getMessagesForStudent(this.studentId).subscribe({
+  //     next: (response) => {
+  //       this.messages = response;
+  //     },
+  //     error: (error) => {
+  //       console.error('Error loading messages:', error);
+  //       alert('Failed to load messages.');
+  //     },
+  //   });
+  // }
+
   loadMessages() {
     this.messageService.getMessagesForStudent(this.studentId).subscribe({
       next: (response) => {
-        this.messages = response;
+        console.log('Backend response:', response); // Log the raw response from the backend
+        this.messages = response.map((message: any) => {
+          // Log each message to check if _id is present
+          console.log('Message:', message);
+          return { ...message }; // Assign _id to id for frontend use
+        });
+        console.log('Loaded messages:', this.messages);
       },
       error: (error) => {
         console.error('Error loading messages:', error);
@@ -66,6 +84,8 @@ export class StudentMessagesToTeacherComponent implements OnInit {
       },
     });
   }
+  
+  
 
   sendMessage() {
     if (!this.newMessage.trim() || !this.selectedTeacherId) {
@@ -90,5 +110,21 @@ export class StudentMessagesToTeacherComponent implements OnInit {
       },
     });
   }
+  deleteMessage(messageId: string) {
+    console.log('Deleting message with ID:', messageId); // Log the message ID
+    if (confirm('Are you sure you want to delete this message?')) {
+      this.messageService.deleteMessage(messageId).subscribe({
+        next: (response) => {
+          alert(response); // Show backend response
+          this.loadMessages(); // Reload messages after deletion
+        },
+        error: (error) => {
+          console.error('Error deleting message:', error);
+          alert('Failed to delete the message.');
+        },
+      });
+    }
+  }
+  
   
 }

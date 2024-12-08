@@ -1,14 +1,149 @@
+/* Styling for the Student Profile */
+.entire-div{
+  padding-top:2rem;
+}
 mat-card {
-  max-width: 600px;
+  max-width: 700px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.8s ease-in-out;
+
+  h2 {
+    font-size: 2rem;
+    // color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  /* Styling for the profile details section */
+  div {
+    // margin-bottom: 15px;
+    
+    p {
+      font-size: 1.1rem;
+      // color: #333;
+      margin: 8px 0;
+    }
+
+    strong {
+      color: green; /* Teal color for labels */
+    }
+  }
+
+  /* Styling for the form fields */
+  mat-form-field {
+    width: 100%;
+    margin: 15px 0;
+    font-size: 1rem;
+
+    mat-label {
+      font-size: 1rem;
+      // color: #333;
+    }
+
+    input {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+  }
+
+  /* Styling for the buttons */
+  button {
+    margin-top: 1px;
+  // width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: green;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+    // font-weight: bold;
+    // background-color: green; /* Teal background */
+    // color: white;
+    // border-radius: 5px;
+    // padding: 0.7rem 1.5rem;
+    // text-transform: uppercase;
+    // transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: green; /* Darker teal */
+    }
+  }
 }
 
-mat-form-field {
-  width: 100%;
-  margin: 10px 0;
+/* Loading message */
+ng-template#loading {
+  text-align: center;
+  font-size: 1rem;
+  color: #00796b;
+  font-weight: bold;
 }
 
-button {
-  margin-top: 10px;
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  mat-card {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  mat-form-field {
+    margin: 12px 0;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  mat-card {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  mat-form-field {
+    margin: 10px 0;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

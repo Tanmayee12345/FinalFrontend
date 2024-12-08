@@ -1,29 +1,49 @@
-<div class="messages-container">
-  <h2>Messages</h2>
-
-  <!-- Message List -->
-  <div *ngIf="messages.length > 0; else noMessages">
-    <mat-card *ngFor="let message of messages" class="message-card">
-      <mat-card-content>
-        <p><strong>Message:</strong> {{ message.message }}</p>
-        <p *ngIf="message.adminResponse"><strong>Admin Response:</strong> {{ message.adminResponse }}</p>
-        <p *ngIf="!message.adminResponse"><em>No response yet.</em></p>
-      </mat-card-content>
-    </mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="entire-page">
+    <div class="messages-container">
+      <h2>Messages</h2>
+    
+      <!-- Message List -->
+      <div *ngIf="messages.length > 0; else noMessages">
+        <mat-card *ngFor="let message of messages" class="message-card">
+          <mat-card-content>
+            <p><strong>Message:</strong> {{ message.message }}</p>
+            <p *ngIf="message.adminResponse"><strong>Admin Response:</strong> {{ message.adminResponse }}</p>
+            <p *ngIf="!message.adminResponse"><em>No response yet.</em></p>
+          </mat-card-content>
+          <mat-card-actions>
+            <p>{{message.id}}</p>
+            <button mat-button class="delete-message" (click)="deleteMessage(message.id)">
+              Delete
+            </button>
+          </mat-card-actions>
+        </mat-card>
+        
+      </div>
+    
+      <!-- No Messages Template -->
+      <ng-template #noMessages>
+        <p>No messages found. Send a new message below.</p>
+      </ng-template>
+    
+      <!-- Send New Message -->
+      <div class="new-message">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Your Message</mat-label>
+          <textarea matInput [(ngModel)]="newMessage"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+      </div>
+    </div>
+    
   </div>
-
-  <!-- No Messages Template -->
-  <ng-template #noMessages>
-    <p>No messages found. Send a new message below.</p>
-  </ng-template>
-
-  <!-- Send New Message -->
-  <div class="new-message">
-    <mat-form-field class="full-width" appearance="fill">
-      <mat-label>Your Message</mat-label>
-      <textarea matInput [(ngModel)]="newMessage"></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
-  </div>
-</div>
-
+  
+</body>
+</html>

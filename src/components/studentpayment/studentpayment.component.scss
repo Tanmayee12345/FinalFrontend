@@ -1,18 +1,51 @@
+/* Body styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* mat-card container styling */
 mat-card {
   margin: 20px auto;
   padding: 20px;
   max-width: 600px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
+  transition: all 0.3s ease;
+  
+  h2 {
+    font-size: 1.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 
+/* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
 
-  th, td {
+  th,
+  td {
+    padding: 12px;
     text-align: left;
-    padding: 8px;
     border: 1px solid #ddd;
   }
 
@@ -20,8 +53,82 @@ table {
     background-color: #f4f4f4;
     font-weight: bold;
   }
+
+  td {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Responsive table for smaller screens */
+  @media (max-width: 768px) {
+    th,
+    td {
+      padding: 10px;
+    }
+
+    th {
+      font-size: 1rem;
+    }
+
+    td {
+      font-size: 0.9rem;
+    }
+  }
 }
 
+/* Button styling */
 button {
-  margin-top: 10px;
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: green;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: green;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+/* Loading text styling */
+ng-template#loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: green;
+}
+
+/* No fee data message */
+ng-template#noFeeData {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ff5733;
+  margin-top: 20px;
+}
+
+/* Responsive styling for mobile screens */
+@media (max-width: 768px) {
+  mat-card {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 1rem;
+    
+  }
 }

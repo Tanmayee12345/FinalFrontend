@@ -1,44 +1,55 @@
-<mat-card *ngIf="!isLoading; else loading">
-  <h2>Your Fee Details</h2>
-  <div *ngIf="feeData; else noFeeData">
-    <table>
-      <tr>
-        <th>Class Name</th>
-        <td>{{ feeData.className }}</td>
-      </tr>
-      <tr>
-        <th>School Fee</th>
-        <td>{{ feeData.schoolFee | currency }}</td>
-      </tr>
-      <tr>
-        <th>Tuition Fee</th>
-        <td>{{ feeData.tuitionFee | currency }}</td>
-      </tr>
-      <tr>
-        <th>Remaining Fee</th>
-        <td>{{ feeData.remainingFee | currency }}</td>
-      </tr>
-      <tr>
-        <th>Paid</th>
-        <td>{{ feeData.paid ? "Yes" : "No" }}</td>
-      </tr>
-    </table>
-
-    <div *ngIf="!feeData.paid">
-      <h3>Make a Payment</h3>
-      <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input matInput type="number" [(ngModel)]="paymentAmount" />
-      </mat-form-field>
-      <button mat-raised-button color="primary" (click)="payFee()">Pay Now</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mat-card *ngIf="!isLoading; else loading">
+    <h2>Fee Details</h2>
+    <div *ngIf="feeData; else noFeeData">
+      <table>
+        <tr>
+          <th>Class Name</th>
+          <td>{{ feeData.className }}</td>
+        </tr>
+        <tr>
+          <th>School Fee</th>
+          <td>{{ feeData.schoolFee | currency }}</td>
+        </tr>
+        <tr>
+          <th>Tuition Fee</th>
+          <td>{{ feeData.tuitionFee | currency }}</td>
+        </tr>
+        <tr>
+          <th>Remaining Fee</th>
+          <td>{{ feeData.remainingFee | currency }}</td>
+        </tr>
+        <tr>
+          <th>Paid</th>
+          <td>{{ feeData.paid ? "Yes" : "No" }}</td>
+        </tr>
+      </table>
+  
+      <div *ngIf="!feeData.paid">
+        <h3>Make a Payment</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" [(ngModel)]="paymentAmount" />
+        </mat-form-field>
+        <button mat-raised-button style="background-color: green;color: white;"  (click)="payFee()">Pay Now</button>
+      </div>
     </div>
-  </div>
-</mat-card>
-
-<ng-template #loading>
-  <p>Loading your fee details...</p>
-</ng-template>
-
-<ng-template #noFeeData>
-  <p>No fee data available. Please contact your administrator.</p>
-</ng-template>
+  </mat-card>
+  
+  <ng-template #loading>
+    <p>Loading your fee details...</p>
+  </ng-template>
+  
+  <ng-template #noFeeData>
+    <p>No fee data available. Please contact your administrator.</p>
+  </ng-template>
+  
+</body>
+</html>

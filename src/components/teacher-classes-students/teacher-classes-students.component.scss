@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+mat-card {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+mat-card:hover {
+  transform: scale(1.02);
+}
+
+h2 {
+  text-align: center;
+  color: #333333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+h3, h4 {
+  color: #555555;
+  font-size: 1.2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333333;
+}
+
+button {
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: #42a5f5 !important;
+  color: white !important;
+  transition: transform 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+mat-card mat-card {
+  max-width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50 !important;
+  color: white !important;
+}
+
+button[type="button"] {
+  color: #f44336 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  mat-card {
+    padding: 15px;
+    margin: 15px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3, h4 {
+    font-size: 1rem;
+  }
+
+  li {
+    font-size: 0.9rem;
+  }
+
+  .modal {
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  mat-card mat-card {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3, h4 {
+    font-size: 0.9rem;
+  }
+
+  li {
+    font-size: 0.85rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

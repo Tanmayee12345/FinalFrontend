@@ -1,17 +1,191 @@
+/* Container for the messages section */
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}.entire-page{
+  padding-top: 3rem;
+}
+
 .messages-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 700px;
+  margin:auto;
+  // margin-top: 2rem;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.8s ease-in-out;
+
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+.delete-message{
+      padding: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: rgb(196, 43, 43);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+}
+  /* Message Card Styling */
+  .message-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Hover effect for message cards */
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      margin: 5px 0;
+    }
+
+    strong {
+      color: #333;
+    }
+
+    em {
+      color: #e74c3c; /* Red color for 'No response yet' */
+    }
+  }
+
+  /* New Message section */
+  .new-message {
+    margin-top: 20px;
+
+    .full-width {
+      width: 100%;
+    }
+    
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: green;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    
+      &:hover {
+        background-color: #6d8765;
+      }
+    
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+
+    // button {  
+    //   margin-top: 10px;
+    //   font-weight: bold;
+    //   background-color: green; /* Teal background */
+    //   color: white;
+    //   border-radius: 5px;
+    //   padding: 0.7rem 1.5rem;
+    //   text-transform: uppercase;
+    //   transition: background-color 0.3s ease;
+
+    //   &:hover {
+    //     background-color: #004d40; /* Darker teal */
+    //   }
+    // }
+  }
+
+  /* No messages text */
+  p.no-messages {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 2rem;
+  }
 }
 
-.message-card {
-  margin-bottom: 15px;
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.new-message {
-  margin-top: 20px;
+/* Responsive Design */
+@media (max-width: 768px) {
+  .messages-container {
+    padding: 1.5rem;
+  }
 
-  .full-width {
-    width: 100%;
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .message-card {
+    padding: 0.8rem;
+  }
+
+  .new-message {
+    margin-top: 15px;
+  }
+
+  .new-message button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  p.no-messages {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .messages-container {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .message-card {
+    padding: 0.6rem;
+  }
+
+  .new-message {
+    margin-top: 12px;
+  }
+
+  .new-message button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  p.no-messages {
+    font-size: 1rem;
   }
 }

@@ -1,29 +1,40 @@
-<div class="teacher-messages-container">
-  <h2>Student Messages</h2>
-
-  <!-- Messages List -->
-  <div *ngIf="messages.length > 0; else noMessages">
-    <mat-card *ngFor="let message of messages" class="message-card">
-      <mat-card-title>From: {{ message.studentName }}</mat-card-title>
-      <mat-card-content>
-        <p><strong>Message:</strong> {{ message.message }}</p>
-        <p><strong>Status:</strong> {{ message.status ? 'Responded' : 'Pending' }}</p>
-        <p *ngIf="message.response"><strong>Response:</strong> {{ message.response }}</p>
-      </mat-card-content>
-      <textarea
-        placeholder="Write your response here..."
-        [(ngModel)]="message.responseText"
-        rows="2"
-        class="response-textarea"
-      ></textarea>
-      <button mat-raised-button color="primary" (click)="respondToMessage(message, message.responseText)">
-        Send Response
-      </button>
-    </mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="teacher-messages-container">
+    <h2>Student Messages</h2>
+  
+    <!-- Messages List -->
+    <div *ngIf="messages.length > 0; else noMessages">
+      <mat-card *ngFor="let message of messages" class="message-card">
+        <mat-card-title>From: {{ message.studentName }}</mat-card-title>
+        <mat-card-content>
+          <p><strong>Message:</strong> {{ message.message }}</p>
+          <p><strong>Status:</strong> {{ message.status ? 'Responded' : 'Pending' }}</p>
+          <p *ngIf="message.response"><strong>Response:</strong> {{ message.response }}</p>
+        </mat-card-content>
+        <textarea
+          placeholder="Write your response here..."
+          [(ngModel)]="message.responseText"
+          rows="2"
+          class="response-textarea"
+        ></textarea>
+        <button mat-raised-button color="primary" (click)="respondToMessage(message, message.responseText)">
+          Send Response
+        </button>
+      </mat-card>
+    </div>
+  
+    <!-- No Messages Template -->
+    <ng-template #noMessages>
+      <p>No messages to display.</p>
+    </ng-template>
   </div>
-
-  <!-- No Messages Template -->
-  <ng-template #noMessages>
-    <p>No messages to display.</p>
-  </ng-template>
-</div>
+  
+</body>
+</html>

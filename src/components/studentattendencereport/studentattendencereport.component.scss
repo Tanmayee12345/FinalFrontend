@@ -1,0 +1,36 @@
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.attendance-report-card {
+  max-width: 600px;
+  margin: auto;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 3px;
+}
+.entire-div{
+  padding-top:5rem; 
+}
+
+.chart-container {
+  position: relative;
+  width: 200px; /* Set fixed width for the chart */
+  height: 200px; /* Set fixed height for the chart */
+  margin: auto; /* Center the chart */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background: #f4f4f4;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}

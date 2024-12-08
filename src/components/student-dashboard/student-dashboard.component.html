@@ -3,32 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard</title>
+  <title>Student Dashboard</title>  <!-- Ensure your CSS file is linked here -->
 </head>
 <body>
+  <!-- Student Dashboard Container -->
   <div class="student-dashboard">
-    <!-- Navigation Bar -->
-    <mat-toolbar class="navbar" color="primary">
-      <span class="nav-title">Student Dashboard</span>
-      <span class="spacer"></span>
-      <button mat-button routerLink="/student-timetable" routerLinkActive="active">TimeTable</button>
-      <button mat-button routerLink="/marksview" routerLinkActive="active">MarksView</button>
-      <button mat-button routerLink="/studentpayment" routerLinkActive="active">Payment</button>
-      <button mat-button routerLink="/studentmessages" routerLinkActive="active">Message to Admin</button>
-      <button mat-button routerLink="/studentteachermessage" routerLinkActive="active">Message to teacher</button>
-      <button mat-button routerLink="/viewAttendence" routerLinkActive="active">View Attendence</button>
-      <button mat-button routerLink="/studentleave" routerLinkActive="active">LaeveRequest</button>
-      <button mat-button routerLink="/vewExamSchedule" routerLinkActive="active">ExamSchedule</button>
-      <button mat-button routerLink="/studentreport" routerLinkActive="active">Report</button>
-     
-     
-    
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-title">Student Dashboard</div>
+      <div class="spacer"></div>
+      <div class="welcome-text">Welcome, <strong>{{ username }}</strong><span class="emoji-container"></span> </div>
+      <button class="logout" (click)="logout()">Logout</button>
+    </nav>
 
-      <button mat-button routerLink="/updatestudentprofile" routerLinkActive="active">Update Profile</button>
-      <button mat-button (click)="logout()">Logout</button>
-    </mat-toolbar>
-  
-  
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <button routerLink="/student-timetable" routerLinkActive="active">TimeTable</button>
+        <button routerLink="/marksview" routerLinkActive="active">Marks View</button>
+        <button routerLink="/studentpayment" routerLinkActive="active">Payment</button>
+        <button routerLink="/studentmessages" routerLinkActive="active">Message to Admin</button>
+        <button routerLink="/studentteachermessage" routerLinkActive="active">Message to Teacher</button>
+        <button routerLink="/viewAttendence" routerLinkActive="active">View Attendance</button>
+        <button routerLink="/studentleave" routerLinkActive="active">Leave Request</button>
+        <button routerLink="/vewExamSchedule" routerLinkActive="active">Exam Schedule</button>
+        <button routerLink="/studentreport" routerLinkActive="active">Report</button>
+        <button routerLink="/updatestudentprofile" routerLinkActive="active">Update Profile</button>
+      </aside>
+
+      <!-- Content Section -->
+      <div class="content">
+        <!-- <app-features></app-features> -->
+        <div class="container1" id="Features">
+          <h4 class="title">Features</h4>
+        
+          <div class="features">
+            <div class="feature-card" *ngFor="let feature of features">
+              <div class="card">
+                <div class="card-body">
+                  <!-- Dynamic Image and Text -->
+                  <img [src]="feature.img" alt="Feature Icon" class="feature-icon" />
+                  <p class="card-text">{{ feature.text }}</p>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- About Us Section -->
+      <div class="footer-section about-us">
+        <h3>About Us</h3>
+        <p>SmartyChubbz enhances the academic and administrative processes of educational institutions with simple, efficient tools.</p>
+      </div>
+
+      <!-- Quick Links Section -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>P.Tanmayee</p>
+        <p>Email: info&#64;school.com</p>
+        <p>Phone: +1-234-567-890</p>
+      </div>
+
+      <!-- Address Section -->
+      <div class="footer-section">
+        <h3>Address</h3>
+        <p>SmartyChubbz Educational Solutions</p>
+        <p>123 Academic Lane,</p>
+        <p>New York, NY 10001, USA</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2024 SmartyChubbz. All Rights Reserved.
+    </div>
+  </footer>
 </body>
 </html>

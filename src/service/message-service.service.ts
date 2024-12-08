@@ -35,4 +35,7 @@ export class MessageServiceService {
   getMessagesForStudent(studentId: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiBase}/student/${studentId}`);
   }
+  deleteMessage(messageId: string): Observable<string> {
+    return this.http.delete(`${this.apiBase}/messages/${messageId}`, { responseType: 'text' });
+  }
 }

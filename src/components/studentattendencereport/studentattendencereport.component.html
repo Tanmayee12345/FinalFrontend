@@ -1,11 +1,51 @@
-<h2>Your Attendance Report</h2>
-<div *ngIf="attendanceReport">
-  <p><strong>Student Name:</strong> {{ attendanceReport.studentName }}</p>
-  <p><strong>Attendance Percentage:</strong> {{ attendanceReport.attendancePercentage | number:'1.2-2' }}%</p>
-  <p><strong>Status:</strong>
-    <span [ngClass]="{'danger': attendanceReport.attendancePercentage < 80, 'good': attendanceReport.attendancePercentage >= 80}">
-      {{ attendanceReport.status }}
-    </span>
-  </p>
-</div>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="entire-div">
+    <mat-card class="attendance-report-card">
+      <h2>Attendance Summary</h2>
+    
+      <div *ngIf="isLoading">
+        <p>Loading attendance data...</p>
+      </div>
+    
+      <div *ngIf="!isLoading">
+        <!-- Attendance Percentage and Teacher -->
+        <!-- <div>
+          <p><strong>Attendance Percentage:</strong> {{ attendancePercentage }}%</p>
+          <p *ngIf="topTeacherId">
+            <strong>Teacher ID:</strong> {{ topTeacherId }}
+          </p>
+        </div> -->
+    
+        <!-- Smaller Pie Chart -->
+        <div class="chart-container">
+          <canvas id="attendanceChart"></canvas>
+        </div>
+    
+        <!-- Attendance List -->
+        <div *ngIf="attendanceSummary && attendanceSummary.length > 0; else noData">
+          <ul>
+            <li *ngFor="let item of attendanceSummary">
+              <strong>Teacher ID:</strong> {{ item.teacherId }}<br />
+              <strong>Status:</strong> {{ item.status }}<br />
+              <strong>Attendance Percentage:</strong> {{ item.attendancePercentage }}%
+            </li>
+          </ul>
+        </div>
+    
+        <!-- No Data Message -->
+        <ng-template #noData>
+          <p>No attendance records available.</p>
+        </ng-template>
+      </div>
+    </mat-card>
+  </div>
+  
+</body>
+</html>

@@ -36,6 +36,9 @@ export class MessageServiceTeacherService {
   
     return this.http.put(apiUrl, payload, { responseType: 'text' });
   }
+  deleteMessage(messageId: string): Observable<string> {
+    return this.http.delete(`${this.apiBase}/${messageId}`, { responseType: 'text' });
+  }
   
 }
 

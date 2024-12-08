@@ -1,24 +1,35 @@
-<div class="leave-requests-container">
-  <h2>Leave Requests</h2>
-
-  <!-- Leave Requests List -->
-  <div *ngIf="leaveRequests.length > 0; else noRequests">
-    <mat-card *ngFor="let request of leaveRequests" class="leave-request-card">
-      <mat-card-title>Student: {{ request.studentName }}</mat-card-title>
-      <mat-card-subtitle>Requested Dates: {{ request.startDate }} to {{ request.endDate }}</mat-card-subtitle>
-      <mat-card-content>
-        <p><strong>Reason:</strong> {{ request.reason }}</p>
-        <p><strong>Status:</strong> {{ request.status }}</p>
-      </mat-card-content>
-      <mat-card-actions *ngIf="request.status === 'Pending'">
-        <button mat-raised-button color="primary" (click)="respondToLeaveRequest(request.id, 'Approved')">Approve</button>
-        <button mat-raised-button color="warn" (click)="respondToLeaveRequest(request.id, 'Rejected')">Reject</button>
-      </mat-card-actions>
-    </mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="leave-requests-container">
+    <h2>Leave Requests</h2>
+  
+    <!-- Leave Requests List -->
+    <div *ngIf="leaveRequests.length > 0; else noRequests">
+      <mat-card *ngFor="let request of leaveRequests" class="leave-request-card">
+        <mat-card-title>Student: {{ request.studentName }}</mat-card-title>
+        <mat-card-subtitle>Requested Dates: {{ request.startDate }} to {{ request.endDate }}</mat-card-subtitle>
+        <mat-card-content>
+          <p><strong>Reason:</strong> {{ request.reason }}</p>
+          <p><strong>Status:</strong> {{ request.status }}</p>
+        </mat-card-content>
+        <mat-card-actions *ngIf="request.status === 'Pending'">
+          <button mat-raised-button color="primary" (click)="respondToLeaveRequest(request.id, 'Approved')">Approve</button>
+          <button mat-raised-button color="warn" (click)="respondToLeaveRequest(request.id, 'Rejected')">Reject</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  
+    <!-- No Requests Template -->
+    <ng-template #noRequests>
+      <p>No leave requests at the moment.</p>
+    </ng-template>
   </div>
-
-  <!-- No Requests Template -->
-  <ng-template #noRequests>
-    <p>No leave requests at the moment.</p>
-  </ng-template>
-</div>
+  
+</body>
+</html>

@@ -1,41 +1,63 @@
-<div class="student-messages-container">
-  <h2>Messages</h2>
-
-  <!-- Teacher Selection -->
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Select Teacher</mat-label>
-    <mat-select [(ngModel)]="selectedTeacherId" required>
-      <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
-        {{ teacher.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <!-- New Message -->
-  <mat-form-field appearance="outline" class="full-width">
-    <textarea
-      matInput
-      placeholder="Write your message here..."
-      [(ngModel)]="newMessage"
-      rows="3"
-    ></textarea>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
-
-  <!-- Messages List -->
-  <div *ngIf="messages.length > 0; else noMessages">
-    <h3>Your Messages</h3>
-    <mat-card *ngFor="let message of messages" class="message-card">
-      <mat-card-title>To: {{ message.teacherName }}</mat-card-title>
-      <mat-card-content>
-        <p><strong>Message:</strong> {{ message.message }}</p>
-        <p><strong>Response:</strong> {{ message.response || 'No response yet' }}</p>
-      </mat-card-content>
-    </mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="student-messages-container">
+  
+    <div class="full-div">
+      <div class="left-div">
+        <!-- Teacher Selection -->
+        <h2>Message To Teacher</h2>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Select Teacher</mat-label>
+        <mat-select [(ngModel)]="selectedTeacherId" required>
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+            {{ teacher.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+      <!-- New Message -->
+      <mat-form-field appearance="outline" class="full-width">
+        <textarea
+          matInput
+          placeholder="Write your message here..."
+          [(ngModel)]="newMessage"
+          rows="3"
+        ></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="sendMessage()">Send Message</button>
+      </div>
+    
+      <!-- Messages List -->
+      <div class="right-div">
+        <div *ngIf="messages.length > 0; else noMessages">
+          <h3>Messages</h3>
+          <mat-card *ngFor="let message of messages" class="message-card">
+            <mat-card-title>To: {{ message.teacherName }}</mat-card-title>
+            <mat-card-content>
+              <p><strong>Message:</strong> {{ message.message }}</p>
+              <p><strong>Response:</strong> {{ message.response || 'No response yet' }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button class="delete-message" (click)="deleteMessage(message.id)">
+                Delete
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    
+    </div>
+    <!-- No Messages Template -->
+    <ng-template #noMessages>
+      <p>No messages to display.</p>
+    </ng-template>
   </div>
-
-  <!-- No Messages Template -->
-  <ng-template #noMessages>
-    <p>No messages to display.</p>
-  </ng-template>
-</div>
+  
+</body>
+</html>

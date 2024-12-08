@@ -1,59 +1,145 @@
+/* Container for Leave Requests */
+
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .leave-requests-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 20px auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
 
   h2 {
     text-align: center;
     margin-bottom: 20px;
+    font-size: 2rem;
     color: #333;
+    font-weight: bold;
   }
 
+  /* Leave Request Card Styling */
   .leave-request-card {
-    margin-bottom: 15px;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #fff;
+    transition: box-shadow 0.3s ease;
+    
+    &:hover {
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
 
     mat-card-title {
-      font-size: 18px;
+      font-size: 1.1rem;
       font-weight: bold;
       color: #007bff;
     }
 
     mat-card-subtitle {
-      font-size: 14px;
+      font-size: 1rem;
       color: #666;
     }
 
     mat-card-content {
-      font-size: 14px;
+      font-size: 1rem;
       color: #555;
 
       p {
-        margin: 5px 0;
+        margin: 8px 0;
       }
     }
 
     mat-card-actions {
-      margin-top: 10px;
+      margin-top: 15px;
 
       button {
-        margin-right: 10px;
-        font-size: 14px;
+        font-size: 1rem;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
       }
 
       button[color="primary"] {
         background-color: #28a745;
+        color: white;
+
+        &:hover {
+          background-color: #218838;
+        }
       }
 
       button[color="warn"] {
         background-color: #dc3545;
+        color: white;
+
+        &:hover {
+          background-color: #c82333;
+        }
       }
     }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .leave-requests-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .leave-request-card {
+    padding: 15px;
+  }
+
+  mat-card-title {
+    font-size: 1rem;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.9rem;
+  }
+
+  mat-card-actions button {
+    font-size: 0.9rem;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leave-requests-container {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .leave-request-card {
+    padding: 12px;
+  }
+
+  mat-card-title {
+    font-size: 0.9rem;
+  }
+
+  mat-card-subtitle {
+    font-size: 0.8rem;
+  }
+
+  mat-card-actions button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
   }
 }

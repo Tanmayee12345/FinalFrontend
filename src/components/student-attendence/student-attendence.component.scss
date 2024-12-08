@@ -1,22 +1,117 @@
+/* Container for attendance summary */
+body{
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .student-attendance-container {
   max-width: 600px;
   margin: auto;
   text-align: center;
+  padding: 2rem;
+  background-color: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  animation: fadeIn 0.8s ease-in-out; /* Fade-in animation */
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
 
+  /* Loading state */
   .loading {
     font-size: 1.2rem;
     color: gray;
+    font-style: italic;
+    padding: 1rem;
+  }
+
+  /* Attendance card styles */
+  .attendance-card {
+    margin: 15px 0;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+    /* Hover effect */
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      margin: 8px 0;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    strong {
+      color: #333;
+    }
+  }
+
+  /* If no attendance records found */
+  p.no-attendance {
+    font-size: 1.2rem;
+    color: #e74c3c; /* Red color for no records */
+    font-weight: bold;
+    margin-top: 2rem;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .student-attendance-container {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.7rem;
   }
 
   .attendance-card {
-    margin: 10px 0;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+  }
 
-    p {
-      margin: 5px 0;
-    }
+  .loading, p.no-attendance {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-attendance-container {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .attendance-card {
+    padding: 0.5rem;
+  }
+
+  .loading, p.no-attendance {
+    font-size: 1rem;
   }
 }

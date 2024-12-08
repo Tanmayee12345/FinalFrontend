@@ -65,4 +65,19 @@ export class StudentMessagesComponent implements OnInit {
       },
     });
   }
+  deleteMessage(messageId: string) {
+    if (confirm('Are you sure you want to delete this message?')) {
+      this.messageService.deleteMessage(messageId).subscribe({
+        next: (response) => {
+          alert(response); // Show backend response
+          this.loadMessages(); // Reload messages after deletion
+        },
+        error: (error) => {
+          console.error('Error deleting message:', error);
+          alert('Failed to delete the message.');
+        },
+      });
+    }
+  }
+  
 }

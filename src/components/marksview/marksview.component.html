@@ -6,8 +6,9 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="entire-page">
   <mat-card *ngIf="!isLoading; else loading">
-    <h2>Your Marks</h2>
+    <h2>Marks</h2>
     <div *ngIf="marksData.length > 0; else noData">
       <table>
         <thead>
@@ -32,6 +33,7 @@
       <p>No marks data available.</p>
     </ng-template>
   </mat-card>
+</div>
   
   <ng-template #loading>
     <p>Loading your marks...</p>
