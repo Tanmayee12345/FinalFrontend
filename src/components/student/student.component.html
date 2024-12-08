@@ -6,54 +6,56 @@
   <title>Student Registration</title>
 </head>
 <body>
-  <mat-card class="registration-card">
-    <h2 class="registration-title">Student Registration</h2>
-    <form (ngSubmit)="registerStudent()">
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Name</mat-label>
-        <input matInput type="text" [(ngModel)]="student.name" name="name" required />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" [(ngModel)]="student.password" name="password" required />
-    </mat-form-field>
-    
-
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Date of Birth</mat-label>
-        <input matInput type="date" [(ngModel)]="student.dateOfBirth" name="dob" required />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" [(ngModel)]="student.email" name="email" required />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Address</mat-label>
-        <input matInput type="text" [(ngModel)]="student.address" name="address" required />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Class</mat-label>
-        <input matInput type="text" [(ngModel)]="student.studentClass" name="studentClass" required />
+  <div class="main-div">
+    <mat-card class="registration-card">
+      <h2 class="registration-title">Student Registration</h2>
+      <form (ngSubmit)="registerStudent()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [(ngModel)]="student.name" name="name" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]="student.password" name="password" required />
       </mat-form-field>
       
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>ParentPhoneNumber</mat-label>
-        <input matInput type="text" [(ngModel)]="student.parentPhoneNumber" name="studentClass" required />
-      </mat-form-field>
-
-
-      <button mat-raised-button class="submit-btn" type="submit" style="background-color: goldenrod;"> Register and Know your Id</button>
-    </form>
-
-    <!-- Display registered student ID -->
-    <div *ngIf="registeredStudentId" class="success-message">
-      <h3>Registration Successful!</h3>
-      <p>Your Student ID: <strong>{{ registeredStudentId }}</strong></p>
-      <button mat-raised-button (click)="navigateToLogin()">Go to Login</button>
-    </div>
-  </mat-card>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput type="date" [(ngModel)]="student.dateOfBirth" name="dob" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="student.email" name="email" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" [(ngModel)]="student.address" name="address" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Class</mat-label>
+          <input matInput type="text" [(ngModel)]="student.studentClass" name="studentClass" required />
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>ParentPhoneNumber</mat-label>
+          <input matInput type="text" [(ngModel)]="student.parentPhoneNumber" name="studentClass" required />
+        </mat-form-field>
+  
+  
+        <button mat-raised-button style="background-color: green; color: white;" class="submit-btn" type="submit"> Register and Know your Id</button>
+      </form>
+  
+      <!-- Display registered student ID -->
+      <div *ngIf="registeredStudentId" class="success-message">
+        <h3>Registration Successful!</h3>
+        <p>Your Student ID: <strong>{{ registeredStudentId }}</strong></p>
+        <button mat-raised-button (click)="navigateToLogin()">Go to Login</button>
+      </div>
+    </mat-card>
+  </div>
 </body>
 </html>

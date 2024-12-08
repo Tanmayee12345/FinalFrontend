@@ -4,7 +4,13 @@ body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}.exam-schedule-container {
+
+}
+.total-div{
+  padding-top:20px;
+
+}
+.exam-schedule-container {
   max-width: 600px;
   margin: 2rem auto;
   padding: 2rem;
@@ -42,7 +48,7 @@ body{
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: #5d9cec;
+      border-color: green;
     }
   }
 
@@ -53,18 +59,18 @@ body{
     font-size: 1.1rem;
     font-weight: bold;
     color: #ffffff;
-    background-color: #5d9cec;
+    background-color: green;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #4b87d9;
+      background-color: green;
     }
 
     &:disabled {
-      background-color: #b0c7e3;
+      background-color: green;
       cursor: not-allowed;
     }
   }

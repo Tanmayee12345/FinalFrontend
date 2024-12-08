@@ -31,6 +31,7 @@ import { ScheduleExamComponent } from '../components/schedule-exam/schedule-exam
 import { AdminattendencereportComponent } from '../components/adminattendencereport/adminattendencereport.component';
 import { StudentattendencereportComponent } from '../components/studentattendencereport/studentattendencereport.component';
 import { AdmindeleteteacherComponent } from '../components/admindeleteteacher/admindeleteteacher.component';
+import { ParentDashboardComponent } from '../components/parent-dashboard/parent-dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'logindetails', pathMatch: 'full' },
@@ -65,7 +66,8 @@ export const routes: Routes = [
   {path:"scheduleExam",component:ScheduleExamComponent},
   {path:"studentreport",component:StudentattendencereportComponent},
   {path:"adminreport",component:AdminattendencereportComponent},
-  {path:"admindeleteteacher",component:AdmindeleteteacherComponent}
+  {path:"admindeleteteacher",component:AdmindeleteteacherComponent},
+  {path:"parent-dashboard",component:ParentDashboardComponent}
  
    // Default route
 ];

@@ -3,141 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>SmartyChubbz High School</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body>
 
-    <header class="header">
-      <img class="logo1" src="../../assets/smarty-chubbz.png">  
+  <header class="header">
+    <img class="logo1" src="../../assets/smarty-chubbz.png" alt="Logo">  
     <h1>SmartyChubbz High School</h1>  
   </header>
-  <!-- <h2>Educating Hearts and Minds for a Better Tomorrow</h2> -->
-    <!-- <p>A digital initiative by the institute facilitating Faculty, Staff, Students, Parents and Alumni to access and process Academics, Research, Supporting services at one common platform.</p> -->
 
   <div class="content">
+    <!-- Left Section with User Type Cards -->
     <div class="left-div">
       <div class="cards">
         <div class="card">
           <img class="img1" src="https://media.istockphoto.com/id/1268716253/vector/freshman-black-glyph-icon.jpg?s=612x612&w=0&k=20&c=_0e-sfr9RfJnNRyif6bVMLqc1rR3tBx5lVIjKfUPH2k=" alt="Student">
           <h3>Student</h3>
-          <button
-          class="student-btn"
-          (click)="selectUserType('student')"
-          [class.active]="userType === 'student'"
-        >
-          Student
-        </button>
+          <button class="student-btn" (click)="selectUserType('student')" [class.active]="userType === 'student'">Student</button>
         </div>
         <div class="card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_3l4fh64eQnvVPPIAgnSVt4JqO5P9jNH5gA&s" alt="Employee">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_3l4fh64eQnvVPPIAgnSVt4JqO5P9jNH5gA&s" alt="Teacher">
           <h3>Teacher</h3>
-          <button
-          class="teacher-btn"
-          (click)="selectUserType('teacher')"
-          [class.active]="userType === 'teacher'"
-        >
-          Teacher
-        </button>
+          <button class="teacher-btn" (click)="selectUserType('teacher')" [class.active]="userType === 'teacher'">Teacher</button>
         </div>
         <div class="card">
           <img src="https://img.freepik.com/premium-vector/family-black-symbol-parents-kid-figure-icon_53562-19076.jpg" alt="Parent">
           <h3>Parent</h3>
-          <button
-          class="parent-btn"
-          (click)="selectUserType('parent')"
-          [class.active]="userType === 'parent'"
-        >
-          Parent
-        </button>
+          <button class="parent-btn" (click)="selectUserType('parent')" [class.active]="userType === 'parent'">Parent</button>
         </div>
         <div class="card">
-          <img src="https://png.pngtree.com/png-vector/20190704/ourmid/pngtree-administration-icon-in-trendy-style-isolated-background-png-image_1538810.jpg" alt="Alumni">
+          <img src="https://png.pngtree.com/png-vector/20190704/ourmid/pngtree-administration-icon-in-trendy-style-isolated-background-png-image_1538810.jpg" alt="Admin">
           <h3>Admin</h3>
-          <button
-          class="admin-btn"
-          (click)="selectUserType('admin')"
-          [class.active]="userType === 'admin'"
-        >
-          Admin
-        </button>
+          <button class="admin-btn" (click)="selectUserType('admin')" [class.active]="userType === 'admin'">Admin</button>
         </div>
       </div>
     </div>
 
-  <div class="right-div">
-    <mat-card class="login-card">
-      <h2 class="login-title">Login</h2>
-    
-      <!-- Login Form -->
-      <form (ngSubmit)="login()" class="login-form">
-        <!-- ID Field for Student, Teacher, Parent -->
-        <mat-form-field appearance="outline" class="full-width" *ngIf="userType !== 'admin'">
-          <mat-label>ID</mat-label>
-          <input matInput type="text" [(ngModel)]="loginDetails.id" name="id" required />
-        </mat-form-field>
-    
-        <!-- Email Field for Student -->
-        <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'student'">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" [(ngModel)]="loginDetails.email" name="email" required />
-        </mat-form-field>
-    
-        <!-- Password Field -->
-        <mat-form-field appearance="outline" class="full-width" *ngIf="userType !== 'admin' && userType !== 'parent'">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" [(ngModel)]="loginDetails.password" name="password" required />
-        </mat-form-field>
-        
-    
-        <!-- Admin Username and Password Fields -->
-        <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
-          <mat-label>Username</mat-label>
-          <input matInput type="text" [(ngModel)]="loginDetails.username" name="username" required />
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" [(ngModel)]="loginDetails.password" name="password" required />
-        </mat-form-field>
-    
-        <!-- Submit Button -->
-        <button
-          class="login-btn"
-          [ngClass]="{
-            'student-btn': userType === 'student',
-            'teacher-btn': userType === 'teacher',
-            'admin-btn': userType === 'admin',
-            'parent-btn': userType === 'parent'
-          }"
-          type="submit"
-        >
-          Login
-        </button>
-      </form>
-    
-      <!-- Create Account Section -->
-      <div class="create-account-section" *ngIf="userType === 'student' || userType === 'teacher'">
-        <p>Don't have an account?</p>
-        <button
-          class="student-btn"
-          *ngIf="userType === 'student'"
-          (click)="navigateToStudentRegistration()"
-        >
-          Create Student Account
-        </button>
-        <button
-          class="teacher-btn"
-          *ngIf="userType === 'teacher'"
-          (click)="navigateToTeacherRegistration()"
-        >
-          Create Teacher Account
-        </button>
+    <!-- Right Section (Initially shows Image, then Login Form) -->
+    <div class="right-div">
+      <!-- Default Image (Logo) -->
+      <div *ngIf="!userType" class="logo-display">
+        <img src="../../assets/smarty-chubbz.png" alt="Logo" class="logo-image" />
       </div>
-    </mat-card>
+
+      <!-- Login Form based on User Type -->
+      <mat-card class="login-card" *ngIf="userType">
+        <h2 class="login-title">Login</h2>
+        <form (ngSubmit)="login()" class="login-form">
+          <mat-form-field appearance="outline" class="full-width" *ngIf="userType !== 'admin'">
+            <mat-label>ID</mat-label>
+            <input matInput type="text" [(ngModel)]="loginDetails.id" name="id" required />
+          </mat-form-field>
+
+          <!-- Email Field for Student -->
+          <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'student'">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="loginDetails.email" name="email" required />
+          </mat-form-field>
+
+          <!-- Password Field -->
+          <mat-form-field appearance="outline" class="full-width" *ngIf="userType !== 'admin' && userType !== 'parent'">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="loginDetails.password" name="password" required />
+          </mat-form-field>
+
+          <!-- Admin Username and Password Fields -->
+          <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" [(ngModel)]="loginDetails.username" name="username" required />
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width" *ngIf="userType === 'admin'">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="loginDetails.password" name="password" required />
+          </mat-form-field>
+
+          <!-- Submit Button -->
+          <button class="login-btn" type="submit">Login</button>
+        </form>
+
+        <!-- Create Account Section -->
+        <div class="create-account-section" *ngIf="userType === 'student' || userType === 'teacher'">
+          <p>Don't have an account?</p>
+          <button class="student-btn" *ngIf="userType === 'student'" (click)="navigateToStudentRegistration()">Create Student Account</button>
+          <button class="teacher-btn" *ngIf="userType === 'teacher'" (click)="navigateToTeacherRegistration()">Create Teacher Account</button>
+        </div>
+      </mat-card>
+    </div>
   </div>
-  </div>
+
   <footer class="footer">
     SmartyChubbz High School - Andhra Pradesh, India
   </footer>
-  
+
+  <script src="scripts.js"></script>
+
 </body>
 </html>

@@ -6,45 +6,47 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="exam-schedule-container">
-    <h1>Schedule Exams</h1>
-  
-    <!-- Class Selection -->
-    <label for="class">Select Class:</label>
-    <select id="class" [(ngModel)]="selectedClassId" (change)="loadCourses()">
-      <option *ngFor="let class of classes" [value]="class.id">{{ class.name }}</option>
-    </select>
-  
-    <!-- Course Selection -->
-    <div *ngIf="courses.length > 0">
-      <label for="course">Select Course:</label>
-      <select id="course" [(ngModel)]="selectedCourseId">
-        <option *ngFor="let course of courses" [value]="course.courseId">
-          Course ID: {{ course.courseId }} | Teacher ID: {{ course.teacherId }}
-        </option>
+  <div class="total-div">
+    <div class="exam-schedule-container">
+      <h1>Schedule Exams</h1>
+    
+      <!-- Class Selection -->
+      <label for="class">Select Class:</label>
+      <select id="class" [(ngModel)]="selectedClassId" (change)="loadCourses()">
+        <option *ngFor="let class of classes" [value]="class.id">{{ class.name }}</option>
       </select>
+    
+      <!-- Course Selection -->
+      <div *ngIf="courses.length > 0">
+        <label for="course">Select Course:</label>
+        <select id="course" [(ngModel)]="selectedCourseId">
+          <option *ngFor="let course of courses" [value]="course.courseId">
+            Course ID: {{ course.courseId }} | Teacher ID: {{ course.teacherId }}
+          </option>
+        </select>
+      </div>
+    
+      <!-- Exam Details -->
+      <label for="examDate">Exam Date:</label>
+      <input id="examDate" type="date" [(ngModel)]="examDate" />
+    
+      <label for="startTime">Start Time:</label>
+      <input id="startTime" type="time" [(ngModel)]="startTime" />
+    
+      <label for="endTime">End Time:</label>
+      <input id="endTime" type="time" [(ngModel)]="endTime" />
+    
+      <!-- Submit Button -->
+      <button (click)="scheduleExam()" [disabled]="!selectedClassId || !selectedCourseId || !examDate || !startTime || !endTime">
+        Schedule Exam
+      </button>
+    
+      <!-- Feedback -->
+      <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     </div>
-  
-    <!-- Exam Details -->
-    <label for="examDate">Exam Date:</label>
-    <input id="examDate" type="date" [(ngModel)]="examDate" />
-  
-    <label for="startTime">Start Time:</label>
-    <input id="startTime" type="time" [(ngModel)]="startTime" />
-  
-    <label for="endTime">End Time:</label>
-    <input id="endTime" type="time" [(ngModel)]="endTime" />
-  
-    <!-- Submit Button -->
-    <button (click)="scheduleExam()" [disabled]="!selectedClassId || !selectedCourseId || !examDate || !startTime || !endTime">
-      Schedule Exam
-    </button>
-  
-    <!-- Feedback -->
-    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
-    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    
   </div>
-  
   
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Attendance Report</title>
 </head>
 <body>
   <div class="entire-div">
@@ -15,28 +15,21 @@
       </div>
     
       <div *ngIf="!isLoading">
-        <!-- Attendance Percentage and Teacher -->
-        <!-- <div>
-          <p><strong>Attendance Percentage:</strong> {{ attendancePercentage }}%</p>
-          <p *ngIf="topTeacherId">
-            <strong>Teacher ID:</strong> {{ topTeacherId }}
-          </p>
-        </div> -->
-    
-        <!-- Smaller Pie Chart -->
-        <div class="chart-container">
-          <canvas id="attendanceChart"></canvas>
-        </div>
-    
-        <!-- Attendance List -->
+        <!-- Attendance List and Pie Charts -->
         <div *ngIf="attendanceSummary && attendanceSummary.length > 0; else noData">
-          <ul>
-            <li *ngFor="let item of attendanceSummary">
-              <strong>Teacher ID:</strong> {{ item.teacherId }}<br />
-              <strong>Status:</strong> {{ item.status }}<br />
-              <strong>Attendance Percentage:</strong> {{ item.attendancePercentage }}%
-            </li>
-          </ul>
+          <div class="charts-container">
+            <div *ngFor="let item of attendanceSummary; let i = index" class="teacher-attendance">
+              <h3>Teacher ID: {{ item.teacherId }}</h3>
+              
+              <!-- Pie Chart for Each Teacher -->
+              <div class="chart-container">
+                <canvas id="attendanceChart{{i}}" width="200" height="200"></canvas>
+              </div>
+              
+              <p><strong>Status:</strong> {{ item.status }}</p>
+              <p><strong>Attendance Percentage:</strong> {{ item.attendancePercentage }}%</p>
+            </div>
+          </div>
         </div>
     
         <!-- No Data Message -->
@@ -46,6 +39,7 @@
       </div>
     </mat-card>
   </div>
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

@@ -8,20 +8,23 @@
 <body>
   <div class="admin-dashboard">
     <!-- Navigation Bar -->
+    <div class="left-div">
     <mat-toolbar class="navbar">
       <span class="nav-title">Teacher Dashboard</span>
       <span class="spacer"></span>
-      <button mat-button routerLink="/studentclass" routerLinkActive="active">Enter Marks </button>
-      <button mat-button routerLink="/teacherstudentmeassages" routerLinkActive="active">View StudentMessages</button>
-      <button mat-button routerLink="/studentattendence" routerLinkActive="active">Add Attendence</button>
-      <button mat-button routerLink="/teacherleaveaccept" routerLinkActive="active">ApproveLeave</button>
+      <button style="color: white; font-size: 15px;" mat-button routerLink="/studentclass" routerLinkActive="active">EnterMarks </button>
+      <button style="color: white; font-size: 15px;" mat-button routerLink="/teacherstudentmeassages" routerLinkActive="active">ViewStudentMessages</button>
+      <button style="color: white; font-size: 15px;" mat-button routerLink="/studentattendence" routerLinkActive="active">AddAttendence</button>
+      <button style="color: white; font-size: 15px;" mat-button routerLink="/teacherleaveaccept" routerLinkActive="active">ApproveLeave</button>
       
-      <button mat-button (click)="logout()">Logout</button>
+      
+      <button style="color: white; background-color: #b71c1c;" mat-button (click)="logout()">Logout</button>
     </mat-toolbar>
+  </div>
   
     <!-- Main Content -->
-    <div class="content">
-      
+    <div class="content1">
+      <img src="../../assets/smarty-chubbz.png">
     </div>
   </div>
   

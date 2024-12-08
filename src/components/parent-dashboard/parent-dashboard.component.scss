@@ -39,6 +39,7 @@ body {
   font-weight: bold;
   // text-transform: uppercase;
   letter-spacing: 1px;
+  // padding: 20px;
 }
 
 /* Spacer to push nav items to the right */
@@ -46,6 +47,11 @@ body {
   flex: 1;
 }
 
+button{
+  padding-left:20px ;
+  margin-right:20px ;
+  padding-bottom: 10px;
+}
 /* Navigation Buttons */
 button[mat-button] {
   font-size: 0.9rem;
@@ -56,7 +62,7 @@ button[mat-button] {
   transition: color 0.3s, transform 0.3s;
 }
 
-button[mat-button]:hover {
+button:hover {
   color: yellow;
   transform: scale(1.1);
 }
@@ -72,6 +78,7 @@ button[mat-button]:hover {
 button[mat-button]:last-child {
   background-color: #b71c1c; /* Dark red for logout */
   padding: 0.5rem 1rem;
+  padding-bottom: 10px;
   border-radius: 5px;
   color: #fff;
   transition: background-color 0.3s;
@@ -94,7 +101,7 @@ button[mat-button]:last-child:hover {
 }
 .content1{
   width: 50%;
-  margin-left: 30%;
+  margin-left: 33%;
   margin-top: 20px;
 }
 

@@ -1,33 +1,48 @@
-<h2>Attendance Report for All Students</h2>
-<table>
-  <thead>
-    <tr>
-      <th>Student ID</th>
-      <th>Student Name</th>
-      <th>Class Name</th>
-      <th>Attendance Percentage</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let report of attendanceReport">
-      <td>{{ report.studentId }}</td>
-      <td>{{ report.studentName }}</td>
-      <td>{{ report.className }}</td>
-      <td>
-        <!-- Extract attendancePercentage from the first teacher object -->
-        {{ report.teachers && report.teachers[0]?.attendancePercentage != null 
-          ? (report.teachers[0].attendancePercentage | number) 
-          : 'N/A' }}%
-      </td>
-      <td>
-        <span [ngClass]="{
-          'danger': report.teachers && report.teachers[0]?.attendancePercentage < 80, 
-          'good': report.teachers && report.teachers[0]?.attendancePercentage >= 80
-        }">
-          {{ report.teachers && report.teachers[0]?.attendancePercentage >= 80 ? 'Good' : 'Danger' }}
-        </span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="main-div">
+    <div class="total-div">
+      <h2>Attendance Report for All Students</h2>
+  <table class="attendence-table">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Class Name</th>
+        <th>Attendance Percentage</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of attendanceReport">
+        <td>{{ report.studentId }}</td>
+        <td>{{ report.studentName }}</td>
+        <td>{{ report.className }}</td>
+        <td>
+          <!-- Extract attendancePercentage from the first teacher object -->
+          {{ report.teachers && report.teachers[0]?.attendancePercentage != null 
+            ? (report.teachers[0].attendancePercentage | number) 
+            : 'N/A' }}%
+        </td>
+        <td>
+          <span [ngClass]="{
+            'danger': report.teachers && report.teachers[0]?.attendancePercentage < 80, 
+            'good': report.teachers && report.teachers[0]?.attendancePercentage >= 80
+          }">
+            {{ report.teachers && report.teachers[0]?.attendancePercentage >= 80 ? 'Good' : 'Danger' }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+    </div>
+  </div>
+</body>
+</html>

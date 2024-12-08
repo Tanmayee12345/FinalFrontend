@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="admin-dashboard">
+    <!-- Navigation Bar -->
+    <mat-toolbar class="navbar">
+      <span class="nav-title">Parent Dashboard</span>
+      <span class="spacer"></span>
+      <button routerLink="/studentreport" routerLinkActive="active">Report</button>
+      
+      <button routerLink="/studentpayment" routerLinkActive="active">Payment</button>
+
+
+     
+      
+      <button mat-button (click)="logout()">Logout</button>
+    </mat-toolbar>
+  
+    <!-- Main Content -->
+    <div class="content1">
+      <img src="../../assets/smarty-chubbz.png">
+    </div>
+  </div>
+  
+</body>
+</html>

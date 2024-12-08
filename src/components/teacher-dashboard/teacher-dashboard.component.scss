@@ -12,7 +12,14 @@ body{
   background-repeat: no-repeat;
   color: #fff;
 }
+.left-div{
+  color: white;
+}
 
+button:hover {
+  color: yellow;
+  transform: scale(1.1);
+}
 /* Navigation Bar */
 .navbar {
   position: sticky;
@@ -21,17 +28,21 @@ body{
   background-color: goldenrod; /* Semi-transparent blue */
   color: white;
   padding: 0 1rem;
+
 }
 
 /* Navigation Title */
 .nav-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 /* Spacer to push nav items to the right */
 .spacer {
   flex: 1;
+}
+.content1{
+  padding-left: 32%;
 }
 
 /* Active link styling */
@@ -49,4 +60,7 @@ body{
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.5); /* Slight overlay for better text visibility */
   border-radius: 10px;
+}
+mat-toolbar{
+  color: white;
 }

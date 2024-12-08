@@ -5,6 +5,9 @@ body{
   background-repeat: no-repeat;
 }
 
+.total-div{
+  padding-top:3rem;
+}
 .parent-communication {
   max-width: 500px;
   margin: 2rem auto;
@@ -39,7 +42,7 @@ body{
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: #6d8765;
+      border-color: green;
     }
   }
 
@@ -56,7 +59,7 @@ body{
     transition: border-color 0.3s ease;
 
     &:focus {
-      border-color: #6d8765;
+      border-color: green;
     }
 
     &::placeholder {
@@ -70,14 +73,14 @@ body{
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    background-color: #6d8765;
+    background-color: green;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #5c7455;
+      background-color: green;
     }
   }
 }

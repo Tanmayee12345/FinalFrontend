@@ -4,11 +4,15 @@ body{
   background-position: center;
   background-repeat: no-repeat;
 }
+.total-div{
+  padding-top:3rem;
+  margin-left:20%;
+}
 
 
 .admin-messages-container {
   max-width: 800px;
-  margin: 0 auto;
+  // margin: 0 auto;
   padding: 20px;
   background-color: #f8f9fa; /* Light background for better readability */
   border-radius: 8px;

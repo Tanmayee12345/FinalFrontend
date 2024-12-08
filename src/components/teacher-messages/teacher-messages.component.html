@@ -6,7 +6,8 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="teacher-messages-container">
+  <div class="main-div">
+    <div class="teacher-messages-container">
     <h2>Student Messages</h2>
   
     <!-- Messages List -->
@@ -24,7 +25,7 @@
           rows="2"
           class="response-textarea"
         ></textarea>
-        <button mat-raised-button color="primary" (click)="respondToMessage(message, message.responseText)">
+        <button style="color: white;background-color: green;" (click)="respondToMessage(message, message.responseText)">
           Send Response
         </button>
       </mat-card>
@@ -36,5 +37,6 @@
     </ng-template>
   </div>
   
+  </div>
 </body>
 </html>

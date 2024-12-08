@@ -1,23 +1,36 @@
-<div class="teachers-list">
-  <h2>Active Teachers</h2>
-
-  <!-- Display teachers if available -->
-  <div *ngIf="teachers.length > 0; else noTeachers">
-    <div *ngFor="let teacher of teachers" class="teacher-card">
-      <div>
-        <h3>{{ teacher.name }}</h3>
-        <p>Teacher ID: {{ teacher.id }}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="total-div">
+    <div class="teachers-list">
+      <h2>Active Teachers</h2>
+    
+      <!-- Display teachers if available -->
+      <div *ngIf="teachers.length > 0; else noTeachers">
+        <div *ngFor="let teacher of teachers" class="teacher-card">
+          <div>
+            <h3>{{ teacher.name }}</h3>
+            <p>Teacher ID: {{ teacher.id }}</p>
+          </div>
+    
+          <!-- Delete button -->
+          <button (click)="deleteTeacher(teacher.id)" class="delete-button">
+            Delete Teacher
+          </button>
+        </div>
       </div>
-
-      <!-- Delete button -->
-      <button (click)="deleteTeacher(teacher.id)" class="delete-button">
-        Delete Teacher
-      </button>
+    
+      <!-- If no teachers found -->
+      <ng-template #noTeachers>
+        <p>No active teachers found.</p>
+      </ng-template>
     </div>
+    
   </div>
-
-  <!-- If no teachers found -->
-  <ng-template #noTeachers>
-    <p>No active teachers found.</p>
-  </ng-template>
-</div>
+</body>
+</html>

@@ -24,7 +24,7 @@ import { AuthService } from '../../service/auth-service.service';
   styleUrls: ['./login-details.component.scss'],
 })
 export class LoginDetailsComponent {
-  userType: string = 'student'; // Default user type
+  userType: string | null = null; // Default is null to show the image initially
   loginDetails: {
     id?: string;
     email?: string;
@@ -35,7 +35,7 @@ export class LoginDetailsComponent {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private authService: AuthService,
+    private authService: AuthService
   ) {}
 
   // Handle user type selection
@@ -49,6 +49,7 @@ export class LoginDetailsComponent {
     let apiUrl = '';
     const requestBody: any = {};
 
+    // Set API URL and request body based on user type
     if (this.userType === 'student') {
       apiUrl = 'http://localhost:8091/api/auth/login/student';
       requestBody.id = this.loginDetails.id;
@@ -62,10 +63,7 @@ export class LoginDetailsComponent {
       apiUrl = 'http://localhost:8091/api/auth/login/parent';
       requestBody.id = this.loginDetails.id;
     } else if (this.userType === 'admin') {
-      if (
-        this.loginDetails.username === 'admin' &&
-        this.loginDetails.password === 'admin123'
-      ) {
+      if (this.loginDetails.username === 'admin' && this.loginDetails.password === 'admin123') {
         alert('Admin login successful!');
         this.router.navigate(['/admin-dashboard']);
         return;
@@ -75,8 +73,10 @@ export class LoginDetailsComponent {
       }
     }
 
+    // Send the login request
     this.http.post(apiUrl, requestBody, { responseType: 'text' }).subscribe({
       next: () => {
+        // Handle navigation after successful login
         if (this.userType === 'teacher') {
           alert('Teacher login successful');
           this.authService.setTeacherId(this.loginDetails.id || '');
@@ -88,7 +88,7 @@ export class LoginDetailsComponent {
         } else if (this.userType === 'parent') {
           alert('Parent login successful');
           this.authService.setStudentId(this.loginDetails.id || '');
-          this.router.navigate(['/student-dashboard']);
+          this.router.navigate(['/parent-dashboard']);
         }
       },
       error: (error) => {
@@ -98,11 +98,12 @@ export class LoginDetailsComponent {
     });
   }
 
+  // Navigation methods for creating accounts
   navigateToStudentRegistration() {
-    this.router.navigate(['/student']);
+    this.router.navigate(['/student-registration']);
   }
 
   navigateToTeacherRegistration() {
-    this.router.navigate(['/teacher']);
+    this.router.navigate(['/teacher-registration']);
   }
 }

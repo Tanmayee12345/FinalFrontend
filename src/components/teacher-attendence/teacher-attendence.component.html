@@ -6,38 +6,39 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="teacher-attendance">
-    <h2>Mark Attendance</h2>
-  
-    <!-- Class Selection -->
-    <div *ngIf="!isLoading">
-      <label for="class-select">Select Class:</label>
-      <select id="class-select" [(ngModel)]="selectedClass">
-        <option *ngFor="let className of objectKeys(classesAndStudents)" [value]="className">
-          {{ className }}
-        </option>
-      </select>
-    </div>
-  
-    <!-- Student Selection -->
-    <div *ngIf="selectedClass">
-      <label for="student-select">Select Student:</label>
-      <select id="student-select" [(ngModel)]="selectedStudentId">
-        <option *ngFor="let student of classesAndStudents[selectedClass]" [value]="student.id">
-          {{ student.name }}
-        </option>
-      </select>
-    </div>
-  
-    <!-- Attendance Form -->
-    <div *ngIf="selectedStudentId">
-      <h3>Mark Attendance for {{ selectedStudentId }}</h3>
-      <label>
-        <input type="checkbox" [(ngModel)]="attendanceData.status" />
-        Present
-      </label>
-      <textarea [(ngModel)]="attendanceData.comments" placeholder="Add comments"></textarea>
-      <button (click)="submitAttendance()">Submit</button>
+  <div class="main-div">
+    <div class="teacher-attendance">
+      <h2>Mark Attendance</h2>
+      <div *ngIf="!isLoading" >
+        <label for="class-select">Select Class: </label>
+        <select id="class-select" [(ngModel)]="selectedClass">
+          <option *ngFor="let className of objectKeys(classesAndStudents)" [value]="className">
+            {{ className }}
+          </option>
+        </select>
+      </div>  
+      <!-- Student Selection -->
+      <div *ngIf="selectedClass">
+        <label for="student-select">Select Student:</label>
+        <select id="student-select" [(ngModel)]="selectedStudentId">
+          <option *ngFor="let student of classesAndStudents[selectedClass]" [value]="student.id">
+            {{ student.name }}
+          </option>
+        </select>
+      </div>
+    
+      <!-- Attendance Form -->
+      <div *ngIf="selectedStudentId" class="text">
+        <h3>Mark Attendance for {{ selectedStudentId }}</h3>
+        <label>
+          <input type="checkbox" [(ngModel)]="attendanceData.status" />
+          Present
+        </label>
+        <br>
+        <textarea [(ngModel)]="attendanceData.comments" placeholder="Add comments"></textarea>
+        <br>
+        <button (click)="submitAttendance()">Submit</button>
+      </div>
     </div>
   </div>
   

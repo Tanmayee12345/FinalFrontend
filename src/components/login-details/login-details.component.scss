@@ -14,24 +14,78 @@ body{
   background-position: center;
   background-repeat: no-repeat;
 }
+/* Remove the underline on focus for Angular Material input fields */
+.mat-form-field-underline {
+  display: none !important;
+}
+
+/* Remove the outline that appears on focus for Angular Material input fields */
+.mat-form-field-outline {
+  display: none !important;
+}
+
+/* Optional: Set custom styles for the input field */
+.mat-form-field .mat-input-element {
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ccc; /* Set a light gray border */
+  padding: 10px; /* Adjust padding for the input */
+}
+
+/* Optional: Set focus styles */
+.mat-form-field .mat-input-element:focus {
+  border: 1px solid #4CAF50; /* Focused input border color */
+}
+/* Remove focus border on buttons */
+.mat-raised-button:focus, .mat-raised-button:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Optional: Style the button */
+.mat-raised-button {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+/* Change the focus color of the Angular Material input */
+.mat-form-field-focus .mat-form-field-underline {
+  background-color: transparent; /* Remove the default line */
+}
+
+.mat-form-field-underline {
+  background-color: transparent !important; /* Remove underline */
+}
+
+/* Custom focus border color */
+.mat-form-field .mat-input-element:focus {
+  border: 2px solid #4CAF50; /* Change the border color to green when focused */
+  box-shadow: none; /* Optional: remove any box-shadow */
+}
+header{
+  height: 3.5rem;
+}
 
 header.header {
   display: flex;
   align-items: center;
   padding: 5px;
   color: white;
-  background-color: green;
+  // width: 20px;
+  background-color: goldenrod;
   // border-bottom: 2px solid #ddd;
 }
 
 header.header img.logo1 {
-  height: 50px;
+  // height: 5%;
+  // width: 6%;
   margin-right: 15px;
+  padding-top: 2px;
 }
 
 header.header h1 {
-  padding-top:1rem;
-  font-size: 24px;
+  padding:3px;
+  margin-top:10px ;
+  font-size: 22px;
   color: white; 
 }
 
@@ -193,3 +247,4 @@ mat-card .create-account-section button:hover {
   bottom: 0;
   width: 100%;
 }
+

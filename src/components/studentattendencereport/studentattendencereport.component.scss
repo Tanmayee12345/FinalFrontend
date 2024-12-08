@@ -1,36 +1,109 @@
-body{
+/* General Styles */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
   background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
+
+h2, h3 {
+  color: #2c3e50;
+}
+
+.entire-div {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
 .attendance-report-card {
-  max-width: 600px;
-  margin: auto;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 1rem;
+  padding: 2rem;
   text-align: center;
-  box-shadow: 3px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-y: auto; /* Adds vertical scrollbar if content overflows */
+  max-height: 80vh; /* Max height to allow scrolling */
 }
-.entire-div{
-  padding-top:5rem; 
+
+.attendance-report-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-attendance {
+  background: #f9f9f9;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.teacher-attendance:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-attendance h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.4rem;
+  color: #3498db;
+}
+
+/* Charts Section */
+.charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-y: auto; /* Scroll bar for the charts container */
+  max-height: 60vh; /* Limit height and add scroll if it exceeds */
 }
 
 .chart-container {
   position: relative;
-  width: 200px; /* Set fixed width for the chart */
-  height: 200px; /* Set fixed height for the chart */
-  margin: auto; /* Center the chart */
+  width: 180px;
+  height: 180px;
+  background: #fdfdfd;
+  margin: 1rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+.chart-container canvas {
+  border-radius: 50%;
 }
 
-ul li {
-  background: #f4f4f4;
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+/* Loader */
+p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #555;
+}
+
+p strong {
+  color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .attendance-report-card {
+    max-width: 95%;
+    padding: 1rem;
+  }
+
+  .charts-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container {
+    width: 150px;
+    height: 150px;
+  }
 }

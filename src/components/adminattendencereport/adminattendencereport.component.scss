@@ -1,0 +1,75 @@
+/* General Styles */
+body {
+  background-image: url('https://t3.ftcdn.net/jpg/08/96/96/26/360_F_896962600_XlsoDgnsm2Bk9gMUObvP820EzUWEcmz9.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+/* Title */
+h2 {
+  color: black;
+  text-align: center;
+}
+
+/* Main container div */
+.main-div {
+  padding-top: 2rem;
+  padding-left: 23rem;
+  /* border-radius: 50%; */ /* Removed comment */
+}
+
+/* Total div (main content wrapper) */
+.total-div {
+  width: 60%;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  color: black; /* Changed to black for visibility */
+  padding-top: 4rem;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 80vh; /* Set max height */
+  overflow-y: auto; /* Add vertical scrollbar if content exceeds max-height */
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+/* Attendance table styles */
+.attendence-table {
+  border-style: double;
+  border: 2px solid white;
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  overflow-y: auto; /* Allows scrolling in case the table is too large */
+  max-height: 50vh; /* Limits the table height, enabling scroll if needed */
+}
+
+/* Table Headers and Data Cells */
+th, td {
+  border: 2px solid green;
+  padding: 10px;
+  border-radius: 20px;
+  border-style: double;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-div {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .total-div {
+    width: 90%; /* Make it full-width on smaller screens */
+  }
+
+  .attendence-table {
+    max-height: 40vh; /* Adjust table height for smaller screens */
+  }
+}
