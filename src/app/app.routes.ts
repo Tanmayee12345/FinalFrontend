@@ -30,6 +30,7 @@ import { ViewExamScheduleComponent } from '../components/view-exam-schedule/view
 import { ScheduleExamComponent } from '../components/schedule-exam/schedule-exam.component';
 import { AdminattendencereportComponent } from '../components/adminattendencereport/adminattendencereport.component';
 import { StudentattendencereportComponent } from '../components/studentattendencereport/studentattendencereport.component';
+import { AdmindeleteteacherComponent } from '../components/admindeleteteacher/admindeleteteacher.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'logindetails', pathMatch: 'full' },
@@ -63,7 +64,8 @@ export const routes: Routes = [
   {path:"vewExamSchedule",component:ViewExamScheduleComponent},
   {path:"scheduleExam",component:ScheduleExamComponent},
   {path:"studentreport",component:StudentattendencereportComponent},
-  {path:"adminreport",component:AdminattendencereportComponent}
+  {path:"adminreport",component:AdminattendencereportComponent},
+  {path:"admindeleteteacher",component:AdmindeleteteacherComponent}
  
    // Default route
 ];

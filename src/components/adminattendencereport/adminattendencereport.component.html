@@ -14,13 +14,20 @@
       <td>{{ report.studentId }}</td>
       <td>{{ report.studentName }}</td>
       <td>{{ report.className }}</td>
-      <td>{{ report.attendancePercentage  }}%</td>
       <td>
-        <span [ngClass]="{'danger': report.attendancePercentage < 80, 'good': report.attendancePercentage >= 80}">
-          {{ report.attendancePercentage >= 80 ? 'Good' : 'Danger' }}
+        <!-- Extract attendancePercentage from the first teacher object -->
+        {{ report.teachers && report.teachers[0]?.attendancePercentage != null 
+          ? (report.teachers[0].attendancePercentage | number) 
+          : 'N/A' }}%
+      </td>
+      <td>
+        <span [ngClass]="{
+          'danger': report.teachers && report.teachers[0]?.attendancePercentage < 80, 
+          'good': report.teachers && report.teachers[0]?.attendancePercentage >= 80
+        }">
+          {{ report.teachers && report.teachers[0]?.attendancePercentage >= 80 ? 'Good' : 'Danger' }}
         </span>
       </td>
     </tr>
   </tbody>
 </table>
-
